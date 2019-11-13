@@ -48,7 +48,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "public", "public", "{CABBED
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pickers", "Pickers", "{C3F9583A-523B-4835-B6BC-CD8FFD2178E3}"
 	ProjectSection(SolutionItems) = preProject
-		public\Plotly\Installation.md = public\Plotly\Installation.md
+		public\Pickers\Installation.md = public\Pickers\Installation.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "web", "web", "{7F29BFE8-02B3-4763-838C-3D8228334B4B}"
@@ -66,13 +66,13 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Feliz.MaterialUI.Pickers", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Date", "Date", "{C2861195-F24F-4E38-AB02-7D41D849D0C5}"
 	ProjectSection(SolutionItems) = preProject
-		public\Pickers\Examples\DatePicker\Basic.md = public\Pickers\Examples\DatePicker\Basic.md
-		public\Pickers\Examples\DatePicker\Customization.md = public\Pickers\Examples\DatePicker\Customization.md
-		public\Pickers\Examples\DatePicker\DifferentViews.md = public\Pickers\Examples\DatePicker\DifferentViews.md
-		public\Pickers\Examples\DatePicker\DynamicData.md = public\Pickers\Examples\DatePicker\DynamicData.md
-		public\Pickers\Examples\DatePicker\InlineMode.md = public\Pickers\Examples\DatePicker\InlineMode.md
-		public\Pickers\Examples\DatePicker\KeyboardInput.md = public\Pickers\Examples\DatePicker\KeyboardInput.md
-		public\Pickers\Examples\DatePicker\StaticMode.md = public\Pickers\Examples\DatePicker\StaticMode.md
+		public\Pickers\Examples\Date\Basic.md = public\Pickers\Examples\Date\Basic.md
+		public\Pickers\Examples\Date\Customization.md = public\Pickers\Examples\Date\Customization.md
+		public\Pickers\Examples\Date\DifferentViews.md = public\Pickers\Examples\Date\DifferentViews.md
+		public\Pickers\Examples\Date\DynamicData.md = public\Pickers\Examples\Date\DynamicData.md
+		public\Pickers\Examples\Date\InlineMode.md = public\Pickers\Examples\Date\InlineMode.md
+		public\Pickers\Examples\Date\KeyboardInput.md = public\Pickers\Examples\Date\KeyboardInput.md
+		public\Pickers\Examples\Date\StaticMode.md = public\Pickers\Examples\Date\StaticMode.md
 	EndProjectSection
 EndProject
 Global
