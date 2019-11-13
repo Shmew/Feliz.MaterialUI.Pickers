@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Plotly\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Pickers\Examples\Date\Basic.fs" />
+    <Compile Include="Pickers\Examples\Date\KeyboardInput.fs" />
+    <Compile Include="Pickers\Examples\Date\DifferentViews.fs" />
+    <Compile Include="Pickers\Examples\Date\InlineMode.fs" />
+    <Compile Include="Pickers\Examples\Date\StaticMode.fs" />
+    <Compile Include="Pickers\Examples\Date\Customization.fs" />
+    <Compile Include="Pickers\Examples\Date\DynamicData.fs" />
+    <Compile Include="..\paket-files\docs\Zaid-Ajaj\Feliz\Feliz.Markdown\Markdown.fs">
+      <Paket>True</Paket>
+      <Link>Feliz.Markdown/Markdown.fs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Urls.fs" />
+    <Compile Include="App.fs" />
+    <Content Include="index.html" />
+    <None Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\Feliz.MaterialUI.Pickers.fsproj" />
+  </ItemGroup>
+  <PropertyGroup>
+    <NpmDependencies>
+      <NpmPackage Name="react-highlight" Version="&gt;= 0.11.1" />
+    </NpmDependencies>
+  </PropertyGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>

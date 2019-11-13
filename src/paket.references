@@ -1,0 +1,5 @@
+﻿group Pickers
+    Fable.Core
+    Feliz
+    Feliz.MaterialUI
+    FSharp.Core
