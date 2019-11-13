@@ -1,6 +1,6 @@
 var ghPages = require("gh-pages");
 
-var packageUrl = "https://github.com/Shmew/Feliz.Plotly.git";
+var packageUrl = "https://github.com/Shmew/Feliz.MaterialUI.Pickers.git";
 
 console.log("Publishing to ", packageUrl);
 
