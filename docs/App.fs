@@ -307,7 +307,7 @@ let sidebar (state: State) dispatch =
         prop.style [
             style.width (length.perc 100)
         ]
-        prop.children [ menuLabel "Feliz.Plotly"; allItems ]
+        prop.children [ menuLabel "Feliz.MaterialUI.Pickers"; allItems ]
     ]
 
 let readme = sprintf "https://raw.githubusercontent.com/%s/%s/master/README.md"
