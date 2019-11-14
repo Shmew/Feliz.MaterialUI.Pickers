@@ -55,4 +55,4 @@ let render = React.functionComponent(fun () ->
     ])
 ```
 
-Feliz.MaterialUI.Pickers has documentation at [https://github.com/Shmew/Feliz.MaterialUI.Pickers](https://shmew.github.io/Feliz.MaterialUI.Pickers/) with live examples along side code samples.
+Feliz.MaterialUI.Pickers has documentation at [Feliz.MaterialUI.Pickers](https://shmew.github.io/Feliz.MaterialUI.Pickers/) with live examples along side code samples.

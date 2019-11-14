@@ -60,7 +60,7 @@ type keyboardTimePicker =
     /// Signature:
     ///
     /// (date: DateIOType) => void
-    static member inline onAccept (handler: DateTime -> unit) = Interop.mkAttr "onAccept" (Func<_,_> handler)
+    static member inline onAccept (handler: DateTime -> unit) = Interop.mkAttr "onAccept" handler
     /// Keyboard onChange
     ///
     /// Signature:
@@ -72,19 +72,19 @@ type keyboardTimePicker =
     /// Signature:
     ///
     /// () => void
-    static member inline onClose (handler: unit -> unit) = Interop.mkAttr "onClose" (Func<_,_> handler)
+    static member inline onClose (handler: unit -> unit) = Interop.mkAttr "onClose" handler
     /// Callback fired when new error should be displayed (!! This is a side effect. Be careful if you want to rerender the component)
     ///
     /// Signature:
     ///
     /// (error: ReactNode, value: DateIOType) => void
-    static member inline onError (handler: ReactElement -> DateTime -> unit) = Interop.mkAttr "onError" (Func<_,_> handler)
+    static member inline onError (handler: ReactElement -> DateTime -> unit) = Interop.mkAttr "onError" handler
     /// On open callback
     ///
     /// Signature:
     ///
     /// () => void
-    static member inline onOpen (handler: unit -> unit) = Interop.mkAttr "onOpen" (Func<_,_> handler)
+    static member inline onOpen (handler: unit -> unit) = Interop.mkAttr "onOpen" handler
     /// Controlled picker open state
     static member inline open' (value: bool) = Interop.mkAttr "open" value
     /// Popover props passed to material-ui Popover (with variant="inline")

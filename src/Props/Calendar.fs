@@ -32,7 +32,7 @@ type calendar =
     /// Signature:
     ///
     /// (date: any, isFinish?: boolean) => void
-    static member inline onChange (handler: DateTime -> unit) = Interop.mkAttr "onChange" (Func<_,_> handler)
+    static member inline onChange (handler: DateTime -> unit) = Interop.mkAttr "onChange" handler
     /// Calendar onChange
     ///
     /// Signature:
@@ -44,13 +44,13 @@ type calendar =
     /// Signature:
     ///
     /// (date: DateIOType) => void | Promise<void>
-    static member inline onMonthChange (handler: DateTime -> unit) = Interop.mkAttr "onMonthChange" (Func<_,_> handler)
+    static member inline onMonthChange (handler: DateTime -> unit) = Interop.mkAttr "onMonthChange" handler
     /// Callback firing on month change. Return promise to render spinner until it is resolved.
     ///
     /// Signature:
     ///
     /// (date: DateIOType) => void | Promise<void>
-    static member inline onMonthChange (handler: DateTime -> JS.Promise<unit>) = Interop.mkAttr "onMonthChange" (Func<_,_> handler)
+    static member inline onMonthChange (handler: DateTime -> JS.Promise<unit>) = Interop.mkAttr "onMonthChange" handler
     /// Custom renderer for day
     ///
     /// Signature:
@@ -62,4 +62,4 @@ type calendar =
     /// Right arrow icon
     static member inline rightArrowIcon (value: ReactElement) = Interop.mkAttr "rightArrowIcon" value
     /// Disable specific date
-    static member inline shouldDisableDate (handler: DateTime -> bool) = Interop.mkAttr "shouldDisableDate" (Func<_,_> handler)
+    static member inline shouldDisableDate (handler: DateTime -> bool) = Interop.mkAttr "shouldDisableDate" handler

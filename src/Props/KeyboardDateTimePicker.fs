@@ -82,7 +82,7 @@ type keyboardDateTimePicker =
     /// Signature:
     ///
     /// (date: DateIOType) => void
-    static member inline onAccept (handler: DateTime -> unit) = Interop.mkAttr "onAccept" (Func<_,_> handler)
+    static member inline onAccept (handler: DateTime -> unit) = Interop.mkAttr "onAccept" handler
     /// Keyboard onChange
     ///
     /// Signature:
@@ -94,37 +94,37 @@ type keyboardDateTimePicker =
     /// Signature:
     ///
     /// () => void
-    static member inline onClose (handler: unit -> unit) = Interop.mkAttr "onClose" (Func<_,_> handler)
+    static member inline onClose (handler: unit -> unit) = Interop.mkAttr "onClose" handler
     /// Callback fired when new error should be displayed (!! This is a side effect. Be careful if you want to rerender the component)
     ///
     /// Signature:
     ///
     /// (error: ReactNode, value: DateIOType) => void
-    static member inline onError (handler: ReactElement -> DateTime -> unit) = Interop.mkAttr "onError" (Func<_,_> handler)
+    static member inline onError (handler: ReactElement -> DateTime -> unit) = Interop.mkAttr "onError" handler
     /// Callback firing on month change. Return promise to render spinner until it is resolved.
     ///
     /// Signature:
     ///
     /// (date: DateIOType) => void | Promise<void>
-    static member inline onMonthChange (handler: DateTime -> unit) = Interop.mkAttr "onMonthChange" (Func<_,_> handler)
+    static member inline onMonthChange (handler: DateTime -> unit) = Interop.mkAttr "onMonthChange" handler
     /// Callback firing on month change. Return promise to render spinner until it is resolved.
     ///
     /// Signature:
     ///
     /// (date: DateIOType) => void | Promise<void>
-    static member inline onMonthChange (handler: DateTime -> JS.Promise<unit>) = Interop.mkAttr "onMonthChange" (Func<_,_> handler)
+    static member inline onMonthChange (handler: DateTime -> JS.Promise<unit>) = Interop.mkAttr "onMonthChange" handler
     /// On open callback
     ///
     /// Signature:
     ///
     /// () => void
-    static member inline onOpen (handler: unit -> unit) = Interop.mkAttr "onOpen" (Func<_,_> handler)
+    static member inline onOpen (handler: unit -> unit) = Interop.mkAttr "onOpen" handler
     /// Callback firing on year change
     ///
     /// Signature:
     ///
     /// (date: DateIOType) => void
-    static member inline onYearChange (handler: DateTime -> unit) = Interop.mkAttr "onYearChange" (Func<_,_> handler)
+    static member inline onYearChange (handler: DateTime -> unit) = Interop.mkAttr "onYearChange" handler
     /// Controlled picker open state
     static member inline open' (value: bool) = Interop.mkAttr "open" value
     /// Popover props passed to material-ui Popover (with variant="inline")
@@ -152,7 +152,7 @@ type keyboardDateTimePicker =
     /// Right arrow icon
     static member inline rightArrowIcon (value: ReactElement) = Interop.mkAttr "rightArrowIcon" value
     /// Disable specific date
-    static member inline shouldDisableDate (handler: DateTime -> bool) = Interop.mkAttr "shouldDisableDate" (Func<_,_> handler)
+    static member inline shouldDisableDate (handler: DateTime -> bool) = Interop.mkAttr "shouldDisableDate" handler
     /// Compare dates by the exact timestamp, instead of start/end of date
     static member inline strictCompareDates (value: bool) = Interop.mkAttr "strictCompareDates" value
     /// Override input component

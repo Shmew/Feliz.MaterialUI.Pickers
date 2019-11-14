@@ -21,7 +21,7 @@ type clockView =
     /// Signature:
     ///
     /// (date: any, isFinish?: boolean) => void
-    static member inline onHourChange (handler: DateTime -> unit) = Interop.mkAttr "onHourChange" (Func<_,_> handler)
+    static member inline onHourChange (handler: DateTime -> unit) = Interop.mkAttr "onHourChange" handler
     /// On hour change
     ///
     /// Signature:
@@ -33,7 +33,7 @@ type clockView =
     /// Signature:
     ///
     /// (date: any, isFinish?: boolean) => void
-    static member inline onMinutesChange (handler: DateTime -> unit) = Interop.mkAttr "onMinutesChange" (Func<_,_> handler)
+    static member inline onMinutesChange (handler: DateTime -> unit) = Interop.mkAttr "onMinutesChange" handler
     /// On minutes change
     ///
     /// Signature:
@@ -45,7 +45,7 @@ type clockView =
     /// Signature:
     ///
     /// (date: any, isFinish?: boolean) => void
-    static member inline onSecondsChange (handler: DateTime -> unit) = Interop.mkAttr "onSecondsChange" (Func<_,_> handler)
+    static member inline onSecondsChange (handler: DateTime -> unit) = Interop.mkAttr "onSecondsChange" handler
     /// On seconds change
     ///
     /// Signature:
