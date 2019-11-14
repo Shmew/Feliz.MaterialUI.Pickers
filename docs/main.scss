@@ -1,4 +1,4 @@
-﻿@import "../../../node_modules/typeface-roboto/index.css";
+﻿@import "../node_modules/typeface-roboto/index.css";
 
 html {
     height: 100%;
@@ -20,6 +20,8 @@ pre {
 
 code {
     margin: 10px;
+    border-radius: 4px;
+    user-select: text;
 }
 
 .scrollbar {

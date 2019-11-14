@@ -37,7 +37,9 @@ var commonPlugins = [
 ];
 
 module.exports = {
-    entry: resolve(CONFIG.fsharpEntry),
+    entry: {
+        root: [resolve(CONFIG.fsharpEntry), resolve(CONFIG.scssEntry)]
+    },
     output: {
         path: resolve(CONFIG.outputDir),
         filename: 'bundle.[hash].js',
