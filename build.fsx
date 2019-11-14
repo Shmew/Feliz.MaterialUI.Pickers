@@ -187,6 +187,11 @@ Target.create "Clean" <| fun _ ->
 Target.create "CleanDocs" <| fun _ ->
     let clean() =
         !! (pub @@ "*.md")
+        ++ (pub @@ "*.wof*")
+        ++ (pub @@ "*.js")
+        ++ (pub @@ "*.css")
+        -- (pub @@ "github-gist.css")
+        ++ (pub @@ "*.*map")
         ++ (pub @@ "*bundle.*")
         ++ (pub @@ "**/README.md")
         ++ (pub @@ "**/RELEASE_NOTES.md")
