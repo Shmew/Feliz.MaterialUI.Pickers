@@ -407,7 +407,6 @@ let sidebar (model: Model) dispatch =
                     listItem.selected (model.CurrentPath = path)
                     listItem.button true
                     prop.href (path |> String.concat "/" |> (+) "#")
-                    //prop.onClick <| fun _ -> dispatch (UrlChanged path)
                     prop.text name
                 ]
             ]
@@ -520,24 +519,34 @@ let render' = React.functionComponent (fun (input: {| model: Model; dispatch: Ms
                             ] 
                         ] 
                     ]
-                    Mui.drawer [ 
-                        prop.className c.drawer
-                        drawer.variant.permanent
-                        drawer.classes [ classes.drawer.paper c.drawerPaper ]
-                        drawer.children [ 
-                            Html.div [ 
-                                prop.className c.toolbar 
+                    Mui.card [
+                        card.raised true
+                        prop.children [
+                            Mui.drawer [ 
+                                prop.className c.drawer
+                                drawer.variant.permanent
+                                drawer.classes [ classes.drawer.paper c.drawerPaper ]
+                                drawer.children [ 
+                                    Html.div [ 
+                                        prop.className c.toolbar 
+                                    ]
+                                    Mui.list [ 
+                                        prop.className "scrollbar"
+                                        list.component' "nav"
+                                        list.children (sidebar input.model input.dispatch)
+                                    ] 
+                                ] 
                             ]
-                            Mui.list [ 
-                                prop.className "scrollbar"
-                                list.component' "nav"
-                                list.children (sidebar input.model input.dispatch)
-                            ] 
-                        ] 
+                        ]
                     ]
                     Html.main [ 
                         prop.className c.content
-                        prop.children [ content input.model input.dispatch ] 
+                        prop.children [ 
+                            Mui.card [
+                                card.raised true
+                                prop.children (content input.model input.dispatch)
+                            ]
+                        ] 
                     ] 
                 ] 
             ] 
