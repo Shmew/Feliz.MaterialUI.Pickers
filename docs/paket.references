@@ -1,6 +1,8 @@
 group Docs
     Fable.Core
     Fable.Elmish.React
+    Fable.MaterialUI.Icons
+    Fable.MaterialUI.MaterialDesignIcons
     Fable.Promise
     Fable.SimpleHttp
     Fable.SimpleJson
@@ -9,6 +11,5 @@ group Docs
     Feliz.MaterialUI
     Feliz.Router
     FSharp.Core
-    Zanaptak.TypedCssClasses
 
     File: Markdown.fs Feliz.Markdown

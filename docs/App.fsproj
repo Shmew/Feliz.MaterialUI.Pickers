@@ -7,6 +7,7 @@
     <EmbeddedResource Remove="Plotly\**" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="main.scss" />
     <Compile Include="Pickers\Examples\Date\Basic.fs" />
     <Compile Include="Pickers\Examples\Date\KeyboardInput.fs" />
     <Compile Include="Pickers\Examples\Date\DifferentViews.fs" />

@@ -16,7 +16,7 @@ let render = React.functionComponent(fun () ->
             Mui.grid [
                 grid.container true
                 grid.direction.row
-                grid.justify.spaceBetween
+                grid.justify.spaceEvenly
 
                 prop.children [
                     Mui.datePicker [
@@ -28,6 +28,7 @@ let render = React.functionComponent(fun () ->
                     Mui.datePicker [
                         datePicker.autoOk true
                         datePicker.label "Clearable"
+                        datePicker.clearable true
                         datePicker.disableFuture true
                         datePicker.value state
                         datePicker.onChange setState

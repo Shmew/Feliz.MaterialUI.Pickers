@@ -34,6 +34,12 @@ NUGET
       Fable.Elmish (>= 3.0) - restriction: >= netstandard2.0
       Fable.React (>= 5.1) - restriction: >= netstandard2.0
       FSharp.Core (>= 4.6.2) - restriction: >= netstandard2.0
+    Fable.MaterialUI.Icons (1.2)
+      Fable.Core (>= 3.0) - restriction: >= netstandard2.0
+      Fable.React (>= 5.2.1) - restriction: >= netstandard2.0
+    Fable.MaterialUI.MaterialDesignIcons (1.2.2)
+      Fable.Core (>= 3.0) - restriction: >= netstandard2.0
+      Fable.React (>= 5.2.1) - restriction: >= netstandard2.0
     Fable.Parsimmon (4.1) - restriction: >= netstandard2.0
       Fable.Core (>= 3.0) - restriction: >= netstandard2.0
       FSharp.Core (>= 4.6.2) - restriction: >= netstandard2.0
@@ -70,11 +76,9 @@ NUGET
       Feliz (>= 0.66.1) - restriction: >= netstandard2.0
       FSharp.Core (>= 4.7) - restriction: >= netstandard2.0
     FSharp.Core (4.7)
-    Zanaptak.TypedCssClasses (0.2)
-      FSharp.Core (>= 4.3.4) - restriction: || (>= net452) (>= netstandard2.0)
 GITHUB
   remote: Zaid-Ajaj/Feliz
-    Feliz.Markdown/Markdown.fs (6309ddbcca954dd54fd2872e430751a53a5323c8)
+    Feliz.Markdown/Markdown.fs (81d7dd5c221e2629cb9ff83e7da73f542f5c887f)
 GROUP FakeBuild
 NUGET
   remote: https://api.nuget.org/v3/index.json

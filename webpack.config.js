@@ -1,10 +1,12 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 var CONFIG = {
     indexHtmlTemplate: 'public/index.html',
     fsharpEntry: 'docs/App.fsproj',
+    scssEntry: 'docs/main.scss',
     outputDir: 'public',
     devServerPort: 8080,
     // Use babel-preset-env to generate JS compatible with most-used browsers.
@@ -42,11 +44,23 @@ module.exports = {
     },
     mode: isProduction ? 'production' : 'development',
     devtool: isProduction ? 'source-map' : 'eval-source-map',
+    optimization: {
+        runtimeChunk: 'single',
+        splitChunks: {
+            chunks: 'all'
+        },
+    },
     plugins: isProduction ?
-        commonPlugins.concat([])
+        commonPlugins.concat([
+            new MiniCssExtractPlugin({ filename: 'style.[hash].css' }),
+        ])
         : commonPlugins.concat([
             new webpack.HotModuleReplacementPlugin()
         ]),
+    resolve: {
+        // See https://github.com/fable-compiler/Fable/issues/1490
+        symlinks: false
+    },
     devServer: {
         contentBase: CONFIG.outputDir,
         hot: true,
@@ -71,6 +85,21 @@ module.exports = {
                     loader: 'babel-loader',
                     options: CONFIG.babel
                 }
+            },
+            {
+                test: /\.(sass|scss|css)$/,
+                use: [
+                    isProduction
+                        ? MiniCssExtractPlugin.loader
+                        : 'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'resolve-url-loader',
+                    },
+                    {
+                        loader: 'sass-loader',
+                    }
+                ],
             },
             {
                 test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|md)(\?.*)?$/,

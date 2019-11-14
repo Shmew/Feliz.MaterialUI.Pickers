@@ -17,6 +17,8 @@ group Docs
 
     nuget Fable.Core ~> 3.1
     nuget Fable.Elmish.React ~> 3.0
+    nuget Fable.MaterialUI.Icons ~> 1.1
+    nuget Fable.MaterialUI.MaterialDesignIcons ~> 1.2
     nuget Fable.Promise ~> 2.0
     nuget Fable.SimpleHttp ~> 2.6
     nuget Fable.SimpleJson ~> 3.7
@@ -25,7 +27,6 @@ group Docs
     nuget Feliz.MaterialUI ~> 0.8
     nuget Feliz.Router ~> 1.4
     nuget FSharp.Core ~> 4.7
-    nuget Zanaptak.TypedCssClasses ~> 0.2
 
     github Zaid-Ajaj/Feliz Feliz.Markdown/Markdown.fs
 

@@ -16,7 +16,7 @@ let render = React.functionComponent(fun () ->
             Mui.grid [
                 grid.container true
                 grid.direction.row
-                grid.justify.spaceBetween
+                grid.justify.spaceEvenly
 
                 prop.children [
                     Mui.keyboardDatePicker [

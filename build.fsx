@@ -410,6 +410,9 @@ Target.create "PackageJson" <| fun _ ->
 // --------------------------------------------------------------------------------------
 // Documentation targets
 
+Target.create "RebuildSass" <| fun _ ->
+    Npm.exec "rebuild node-sass" id
+
 Target.createFinal "KillProcess" <| fun _ ->
     Process.killAllByName "node.exe"
     Process.killAllByName "Node.js"
@@ -507,6 +510,7 @@ Target.create "Publish" ignore
   ==> "YarnInstall"
   ==> "RunGenerators"
   ==> "Build"
+  ==> "RebuildSass"
   ==> "PostBuildClean" 
   ==> "CopyBinaries"
 

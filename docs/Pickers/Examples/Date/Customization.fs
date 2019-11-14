@@ -97,13 +97,21 @@ let render = React.functionComponent(fun () ->
         pickerUtilsProvider.utils.dateFns
 
         prop.children [
-            Mui.datePicker [
-                datePicker.label "Week picker"
-                datePicker.value state
-                datePicker.onChange handleWeekChange
-                datePicker.renderDay renderDay
-                datePicker.labelFunc labelFunc
-                datePicker.animateYearScrolling true
+            Mui.grid [
+                grid.container true
+                grid.direction.row
+                grid.justify.spaceEvenly
+
+                prop.children [
+                    Mui.datePicker [
+                        datePicker.label "Week picker"
+                        datePicker.value state
+                        datePicker.onChange handleWeekChange
+                        datePicker.renderDay renderDay
+                        datePicker.labelFunc labelFunc
+                        datePicker.animateYearScrolling true
+                    ]
+                ]
             ]
         ]
     ])
