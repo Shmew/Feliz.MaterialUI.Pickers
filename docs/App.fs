@@ -60,6 +60,7 @@ module AppTheme =
                   style.cursor "default"
                   style.userSelect.none
                   style.display.grid ]
+           code = Styles.create [ style.userSelect.text ]
            containerCard =
                Styles.create 
                    [ style.padding (length.em 1) ]
@@ -237,14 +238,14 @@ module MarkdownView =
                         prop.children sampleApp
                     ]
                     Highlight.highlight [
-                        prop.className "fsharp"
+                        prop.classes [ "fsharp"; c.code ]
                         prop.text(input.codeProps.value)
                     ]
                 ]
             ]
         else
             Highlight.highlight [
-                prop.className "fsharp"
+                prop.classes [ "fsharp"; c.code ]
                 prop.text(input.codeProps.value)
             ])
 
