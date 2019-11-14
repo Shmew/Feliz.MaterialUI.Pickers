@@ -18,7 +18,7 @@ type calendar =
     /// Disable past dates
     static member inline disablePast (value: bool) = Interop.mkAttr "disablePast" value
     /// Props to pass to left arrow button
-    static member inline leftArrowButtonProps (iconButtonProps: #IReactProperty seq) = Interop.mkAttr "leftArrowButtonProps" (createObj !!iconButtonProps)
+    static member inline leftArrowButtonProps (iconButtonProps: IReactProperty seq) = Interop.mkAttr "leftArrowButtonProps" (createObj !!iconButtonProps)
     /// Left arrow icon
     static member inline leftArrowIcon (value: ReactElement) = Interop.mkAttr "leftArrowIcon" value
     /// Custom loading indicator
@@ -58,8 +58,10 @@ type calendar =
     /// (day: DateIOType, selectedDate: DateIOType, dayInCurrentMonth: boolean, dayComponent: Element) => Element
     static member inline renderDay (render: DateTime -> DateTime -> bool -> ReactElement -> ReactElement) = Interop.mkAttr "renderDay" (Func<_,_,_,_,_> render)
     /// Props to pass to right arrow button
-    static member inline rightArrowButtonProps (iconButtonProps: #IReactProperty seq) = Interop.mkAttr "leftArrowButtonProps" (createObj !!iconButtonProps)
+    static member inline rightArrowButtonProps (iconButtonProps: IReactProperty seq) = Interop.mkAttr "leftArrowButtonProps" (createObj !!iconButtonProps)
     /// Right arrow icon
     static member inline rightArrowIcon (value: ReactElement) = Interop.mkAttr "rightArrowIcon" value
     /// Disable specific date
     static member inline shouldDisableDate (handler: DateTime -> bool) = Interop.mkAttr "shouldDisableDate" handler
+
+module calendar = Feliz.MaterialUI.textField

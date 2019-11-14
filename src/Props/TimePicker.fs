@@ -80,7 +80,7 @@ type timePicker =
     /// Controlled picker open state
     static member inline open' (value: bool) = Interop.mkAttr "open" value
     /// Popover props passed to material-ui Popover (with variant="inline")
-    static member inline popoverProps (popoverProps: #IReactProperty seq) = Interop.mkAttr "PopoverProps" (createObj !!popoverProps)
+    static member inline popoverProps (popoverProps: IReactProperty seq) = Interop.mkAttr "PopoverProps" (createObj !!popoverProps)
     /// Make picker read only
     static member inline readOnly (value: bool) = Interop.mkAttr "readOnly" value
     /// Custom renderer for day
@@ -101,6 +101,12 @@ type timePicker =
     static member inline views (value: #IViewProperty seq) = Interop.mkAttr "views" (value |> ResizeArray)
 
 module timePicker =
+    [<Erase>]
+    type color = MaterialUI.textField.color 
+
+    [<Erase>]
+    type margin = MaterialUI.textField.margin 
+
     /// Pass material-ui text field variant down, bypass internal variant prop
     [<Erase>]
     type inputVariant =

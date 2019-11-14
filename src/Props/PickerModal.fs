@@ -15,7 +15,7 @@ type pickerModal =
     /// "CLEAR" label message
     static member inline clearLabel (value: ReactElement) = Interop.mkAttr "clearLabel" value // string overload? is this valid?
     /// Props to pass to left arrow button
-    static member inline dialogProps (dialogProps: #IReactProperty seq) = Interop.mkAttr "DialogProps" (createObj !!dialogProps)
+    static member inline dialogProps (dialogProps: IReactProperty seq) = Interop.mkAttr "DialogProps" (createObj !!dialogProps)
     /// "OK" label message
     static member inline okLabel (value: ReactElement) = Interop.mkAttr "okLabel" value // string overload? is this valid?
     /// If true today button will be displayed 
@@ -24,3 +24,5 @@ type pickerModal =
     static member inline showTodayButton (value: bool) = Interop.mkAttr "showTodayButton" value
     /// "TODAY" label message
     static member inline todayLabel (value: ReactElement) = Interop.mkAttr "todayLabel" value
+
+module pickerModal = Feliz.MaterialUI.textField

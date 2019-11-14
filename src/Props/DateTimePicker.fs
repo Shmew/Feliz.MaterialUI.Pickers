@@ -46,7 +46,7 @@ type dateTimePicker =
     /// (date: DateIOType, invalidLabel: string) => string
     static member inline labelFunc (handler: DateTime -> string -> string) = Interop.mkAttr "labelFunc" (Func<_,_,_> handler)
     /// Props to pass to left arrow button
-    static member inline leftArrowButtonProps (iconButtonProps: #IReactProperty seq) = Interop.mkAttr "leftArrowButtonProps" (createObj !!iconButtonProps)
+    static member inline leftArrowButtonProps (iconButtonProps: IReactProperty seq) = Interop.mkAttr "leftArrowButtonProps" (createObj !!iconButtonProps)
     /// Left arrow icon
     static member inline leftArrowIcon (value: ReactElement) = Interop.mkAttr "leftArrowIcon" value
     /// Custom loading indicator
@@ -114,7 +114,7 @@ type dateTimePicker =
     /// Controlled picker open state
     static member inline open' (value: bool) = Interop.mkAttr "open" value
     /// Popover props passed to material-ui Popover (with variant="inline")
-    static member inline popoverProps (popoverProps: #IReactProperty seq) = Interop.mkAttr "PopoverProps" (createObj !!popoverProps)
+    static member inline popoverProps (popoverProps: IReactProperty seq) = Interop.mkAttr "PopoverProps" (createObj !!popoverProps)
     /// Make picker read only
     static member inline readOnly (value: bool) = Interop.mkAttr "readOnly" value
     /// Custom renderer for day
@@ -124,7 +124,7 @@ type dateTimePicker =
     /// (day: DateIOType, selectedDate: DateIOType, dayInCurrentMonth: boolean, dayComponent: Element) => Element
     static member inline renderDay (render: DateTime -> DateTime -> bool -> ReactElement -> ReactElement) = Interop.mkAttr "renderDay" (Func<_,_,_,_,_> render)
     /// Props to pass to right arrow button
-    static member inline rightArrowButtonProps (iconButtonProps: #IReactProperty seq) = Interop.mkAttr "rightArrowButtonProps" (createObj !!iconButtonProps)
+    static member inline rightArrowButtonProps (iconButtonProps: IReactProperty seq) = Interop.mkAttr "rightArrowButtonProps" (createObj !!iconButtonProps)
     /// Right arrow icon
     static member inline rightArrowIcon (value: ReactElement) = Interop.mkAttr "rightArrowIcon" value
     /// Disable specific date
@@ -145,6 +145,12 @@ type dateTimePicker =
     static member inline views (value: #IViewProperty seq) = Interop.mkAttr "views" (value |> ResizeArray)
 
 module dateTimePicker =
+    [<Erase>]
+    type color = MaterialUI.textField.color 
+
+    [<Erase>]
+    type margin = MaterialUI.textField.margin 
+
     /// Pass material-ui text field variant down, bypass internal variant prop
     [<Erase>]
     type inputVariant =

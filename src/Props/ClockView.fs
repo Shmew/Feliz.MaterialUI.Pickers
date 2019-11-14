@@ -53,7 +53,16 @@ type clockView =
     /// (date: any, isFinish?: boolean) => void
     static member inline onSecondsChange (handler: DateTime -> bool -> unit) = Interop.mkAttr "onSecondsChange" (Func<_,_,_> handler)
 
-module clockView =
+module clockView = 
+    [<Erase>]
+    type variant = textField.variant 
+
+    [<Erase>]
+    type color = textField.color 
+
+    [<Erase>]
+    type margin = textField.margin 
+
     /// Clock type
     [<Erase>]
     type type' =
