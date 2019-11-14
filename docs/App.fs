@@ -520,10 +520,10 @@ let render' = React.functionComponent (fun (input: {| model: Model; dispatch: Ms
                         ] 
                     ]
                     Mui.card [
+                        prop.className c.drawer
                         card.raised true
                         prop.children [
                             Mui.drawer [ 
-                                prop.className c.drawer
                                 drawer.variant.permanent
                                 drawer.classes [ classes.drawer.paper c.drawerPaper ]
                                 drawer.children [ 
