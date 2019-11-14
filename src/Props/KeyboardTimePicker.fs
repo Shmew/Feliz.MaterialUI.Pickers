@@ -30,7 +30,9 @@ type keyboardTimePicker =
     /// Overrides value prop
     static member inline inputValue (value: string) = Interop.mkAttr "inputValue" value
     /// Message, appearing when date cannot be parsed
-    static member inline invalidDateMessage (value: ReactElement) = Interop.mkAttr "invalidDateMessage" value // string overload? is this valid?
+    static member inline invalidDateMessage (value: ReactElement) = Interop.mkAttr "invalidDateMessage" value
+    /// Message, appearing when date cannot be parsed
+    static member inline invalidDateMessage (value: string) = Interop.mkAttr "invalidDateMessage" value
     /// Message, appearing when date cannot be parsed
     static member inline invalidLabel (value: string) = Interop.mkAttr "invalidLabel" value
     /// Props to pass to keyboard adornment button
@@ -48,9 +50,13 @@ type keyboardTimePicker =
     /// Char string that will be replaced with number (for "_" mask will be "__/__/____")
     static member inline maskChar (value: string) = Interop.mkAttr "maskChar" value
     /// Error message, shown if date is more then maximal date
-    static member inline maxDateMessage (value: ReactElement) = Interop.mkAttr "maxDateMessage" value // string overload? is this valid?
+    static member inline maxDateMessage (value: ReactElement) = Interop.mkAttr "maxDateMessage" value
+    /// Error message, shown if date is more then maximal date
+    static member inline maxDateMessage (value: string) = Interop.mkAttr "maxDateMessage" value
     /// Error message, shown if date is less then minimal date
-    static member inline minDateMessage (value: ReactElement) = Interop.mkAttr "minDateMessage" value // string overload? is this valid?
+    static member inline minDateMessage (value: ReactElement) = Interop.mkAttr "minDateMessage" value
+    /// Error message, shown if date is less then minimal date
+    static member inline minDateMessage (value: string) = Interop.mkAttr "minDateMessage" value
     /// Minutes step
     static member inline minutesStep (value: int) = Interop.mkAttr "minutesStep" value
     /// Minutes step

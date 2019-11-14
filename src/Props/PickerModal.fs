@@ -9,15 +9,21 @@ open Feliz.MaterialUI
 type pickerModal =
     inherit textField
     /// "CANCEL" label message
-    static member inline cancelLabel (value: ReactElement) = Interop.mkAttr "cancelLabel" value // string overload? is this valid?
+    static member inline cancelLabel (value: ReactElement) = Interop.mkAttr "cancelLabel" value
+    /// "CANCEL" label message
+    static member inline cancelLabel (value: string) = Interop.mkAttr "cancelLabel" value
     /// Show clear action in picker dialog
     static member inline clearable (value: bool) = Interop.mkAttr "clearable" value
     /// "CLEAR" label message
-    static member inline clearLabel (value: ReactElement) = Interop.mkAttr "clearLabel" value // string overload? is this valid?
+    static member inline clearLabel (value: ReactElement) = Interop.mkAttr "clearLabel" value
+    /// "CLEAR" label message
+    static member inline clearLabel (value: string) = Interop.mkAttr "clearLabel" value
     /// Props to pass to left arrow button
     static member inline dialogProps (dialogProps: IReactProperty seq) = Interop.mkAttr "DialogProps" (createObj !!dialogProps)
     /// "OK" label message
-    static member inline okLabel (value: ReactElement) = Interop.mkAttr "okLabel" value // string overload? is this valid?
+    static member inline okLabel (value: ReactElement) = Interop.mkAttr "okLabel" value
+    /// "OK" label message
+    static member inline okLabel (value: string) = Interop.mkAttr "okLabel" value
     /// If true today button will be displayed 
     ///
     /// **clear button has higher priority**
