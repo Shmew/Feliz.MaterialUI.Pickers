@@ -63,6 +63,7 @@ module AppTheme =
            containerCard =
                Styles.create 
                    [ style.padding (length.em 1) ]
+           contentCard = Styles.create [ style.height (length.percent 100) ]
            content =
                Styles.create
                    [ style.flexGrow 1
@@ -543,6 +544,7 @@ let render' = React.functionComponent (fun (input: {| model: Model; dispatch: Ms
                         prop.className c.content
                         prop.children [ 
                             Mui.card [
+                                prop.className c.contentCard
                                 card.raised true
                                 prop.children (content input.model input.dispatch)
                             ]
