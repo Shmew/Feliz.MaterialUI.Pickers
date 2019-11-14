@@ -1,6 +1,6 @@
 # Feliz.MaterialUI.Pickers (alpha) 
 
-Fable bindings for [plotly.js](https://github.com/mui-org/material-ui-pickers) with [Feliz](https://github.com/Zaid-Ajaj/Feliz) style api for use within MaterialUI.
+Fable bindings for [material-ui-pickers](https://github.com/mui-org/material-ui-pickers) with [Feliz](https://github.com/Zaid-Ajaj/Feliz) style api for use within MaterialUI.
 
 Here is a quick look:
 

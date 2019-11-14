@@ -79,7 +79,9 @@ module AppTheme =
            drawerPaper = Styles.create [ style.width drawerWidth ]
            fullSizeCard =
                Styles.create
-                   [ style.paddingLeft (length.em 5)
+                   [ style.paddingTop (length.em 1)
+                     style.paddingBottom (length.em 1)
+                     style.paddingLeft (length.em 5)
                      style.paddingRight (length.em 5)
                      style.flexGrow 1 ]
            githubButton = Styles.create [ style.custom ("color", "inherit"); style.custom ("backgroundColor", "inherit") ]
