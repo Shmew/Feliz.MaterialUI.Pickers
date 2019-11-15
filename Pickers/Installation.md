@@ -12,22 +12,22 @@ Then you need to install the corresponding npm dependencies:
 npm install react
 npm install react-dom
 npm install @date-io/core
-npm install @date-io/date-fns (or whichever library you prefer)
+npm install @date-io/date-fns
 npm install @material-ui/core
 npm install @material-ui/lab
 npm install @material-ui/pickers
-npm install date-fns (or whichever library you prefer)
+npm install date-fns
 
 ___
 
 yarn add react
 yarn add react-dom
 yarn add @date-io/core
-yarn add @date-io/date-fns (or whichever library you prefer)
+yarn add @date-io/date-fns
 yarn add @material-ui/core
 yarn add @material-ui/lab
 yarn add @material-ui/pickers
-yarn add date-fns (or whichever library you prefer)
+yarn add date-fns
 ```
 
 ### Use Femto
@@ -37,4 +37,4 @@ If you happen to use [Femto](https://github.com/Zaid-Ajaj/Femto), then it can in
 cd ./project
 femto install Feliz.MaterialUI.Pickers
 ```
-Here, the nuget package will be installed using the package manager that the project is using (detected by Femto) and then the required npm packages will be resolved
+Here, the nuget package will be installed using the package manager that the project is using (detected by Femto) and then the required npm packages will be resolved.
