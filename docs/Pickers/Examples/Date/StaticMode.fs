@@ -10,30 +10,26 @@ let render = React.functionComponent(fun () ->
     let state,setState = React.useState(DateTime.Now)
 
     Mui.pickerUtilsProvider [
-        pickerUtilsProvider.utils.dateFns
+        Mui.grid [
+            grid.container true
+            grid.direction.row
+            grid.justify.spaceEvenly
 
-        prop.children [
-            Mui.grid [
-                grid.container true
-                grid.direction.row
-                grid.justify.spaceEvenly
-
-                prop.children [
-                    Mui.datePicker [
-                        datePicker.autoOk true
-                        datePicker.variant.static'
-                        datePicker.openTo.year
-                        datePicker.value state
-                        datePicker.onChange setState
-                    ]
-                    Mui.datePicker [
-                        datePicker.autoOk true
-                        datePicker.orientation.landscape
-                        datePicker.variant.static'
-                        datePicker.openTo.date
-                        datePicker.value state
-                        datePicker.onChange setState
-                    ]
+            prop.children [
+                Mui.datePicker [
+                    datePicker.autoOk true
+                    datePicker.variant.static'
+                    datePicker.openTo.year
+                    datePicker.value state
+                    datePicker.onChange setState
+                ]
+                Mui.datePicker [
+                    datePicker.autoOk true
+                    datePicker.orientation.landscape
+                    datePicker.variant.static'
+                    datePicker.openTo.date
+                    datePicker.value state
+                    datePicker.onChange setState
                 ]
             ]
         ]

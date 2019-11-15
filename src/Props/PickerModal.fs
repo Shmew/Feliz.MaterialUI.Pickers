@@ -30,5 +30,7 @@ type pickerModal =
     static member inline showTodayButton (value: bool) = Interop.mkAttr "showTodayButton" value
     /// "TODAY" label message
     static member inline todayLabel (value: ReactElement) = Interop.mkAttr "todayLabel" value
+    /// "TODAY" label message
+    static member inline todayLabel (value: string) = Interop.mkAttr "todayLabel" value
 
 module pickerModal = Feliz.MaterialUI.textField

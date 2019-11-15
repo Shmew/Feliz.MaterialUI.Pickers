@@ -196,13 +196,29 @@ let centeredSpinner =
     ]
 
 let samples = 
-    [ "pickers-date-basic", Samples.Date.Basic.render()
-      "pickers-date-keyboardinput", Samples.Date.KeyboardInput.render()
-      "pickers-date-differentviews", Samples.Date.DifferentViews.render()
-      "pickers-date-inlinemode", Samples.Date.InlineMode.render()
-      "pickers-date-staticmode", Samples.Date.StaticMode.render()
-      "pickers-date-customization", Samples.Date.Customization.render()
-      "pickers-date-dynamicdata", Samples.Date.DynamicData.render() ]
+    let date =
+        [ "pickers-date-basic", Samples.Date.Basic.render()
+          "pickers-date-keyboardinput", Samples.Date.KeyboardInput.render()
+          "pickers-date-differentviews", Samples.Date.DifferentViews.render()
+          "pickers-date-inlinemode", Samples.Date.InlineMode.render()
+          "pickers-date-staticmode", Samples.Date.StaticMode.render()
+          "pickers-date-customization", Samples.Date.Customization.render()
+          "pickers-date-dynamicdata", Samples.Date.DynamicData.render() ]
+
+    let time =
+        [ "pickers-time-basic", Samples.Time.Basic.render()
+          "pickers-time-keyboardinput", Samples.Time.KeyboardInput.render()
+          "pickers-time-inlinemode", Samples.Time.InlineMode.render()
+          "pickers-time-staticmode", Samples.Time.StaticMode.render()
+          "pickers-time-seconds", Samples.Time.Seconds.render() ]
+
+    let dateTime =
+        [ "pickers-datetime-basic", Samples.DateTime.Basic.render()
+          "pickers-datetime-inlinemode", Samples.DateTime.InlineMode.render()
+          "pickers-datetime-customization", Samples.DateTime.Customization.render() ]
+
+    [ date; time; dateTime ]
+    |> List.concat
 
 module MarkdownView =
 
@@ -431,6 +447,20 @@ let sidebar (model: Model) dispatch =
             nestedMenuItem "Customization" [ Urls.Customization ]
             nestedMenuItem "Dynamic Data" [ Urls.DynamicData ]
         ]
+
+        nestedMenuList "Time Picker" [ Urls.Pickers; Urls.Examples; Urls.Time ] [
+            nestedMenuItem "Basic" [ Urls.Basic ]
+            nestedMenuItem "Keyboard Input" [ Urls.KeyboardInput ]
+            nestedMenuItem "Inline Mode" [ Urls.InlineMode ]
+            nestedMenuItem "Static Mode" [ Urls.StaticMode ]
+            nestedMenuItem "Seconds" [ Urls.Seconds ]
+        ]
+
+        nestedMenuList "Date Time Picker" [ Urls.Pickers; Urls.Examples; Urls.DateTime ] [
+            nestedMenuItem "Basic" [ Urls.Basic ]
+            nestedMenuItem "Inline Mode" [ Urls.InlineMode ]
+            nestedMenuItem "Customization" [ Urls.Customization ]
+        ]
     ]
 
 let readme = sprintf "https://raw.githubusercontent.com/%s/%s/master/README.md"
@@ -449,6 +479,22 @@ let examples (currentPath: string list) =
         | [ Urls.DynamicData ] -> [ "DynamicData.md" ]
         | _ -> []
         |> List.append [ Urls.Date ]
+    | Urls.Time :: rest ->
+        match rest with
+        | [ Urls.Basic ] -> [ "Basic.md" ]
+        | [ Urls.KeyboardInput ] -> [ "KeyboardInput.md" ]
+        | [ Urls.InlineMode ] -> [ "InlineMode.md" ]
+        | [ Urls.StaticMode ] -> [ "StaticMode.md" ]
+        | [ Urls.Seconds ] -> [ "Seconds.md" ]
+        | _ -> []
+        |> List.append [ Urls.Time ]
+    | Urls.DateTime :: rest -> 
+        match rest with
+        | [ Urls.Basic ] -> [ "Basic.md" ]
+        | [ Urls.InlineMode ] -> [ "InlineMode.md" ]
+        | [ Urls.Customization ] -> [ "Customization.md" ]
+        | _ -> []
+        |> List.append [ Urls.DateTime ]
     | _ -> []
 
 let content model dispatch =
@@ -459,7 +505,7 @@ let content model dispatch =
         else false
 
     match model.CurrentPath with
-    | [ Urls.Pickers; Urls.Overview; ] -> lazyView loadMarkdown [ "Pickers"; "README.md" ]
+    | [ Urls.Pickers; Urls.Overview ] -> lazyView loadMarkdown [ "Pickers"; "README.md" ]
     | [ Urls.Pickers; Urls.Installation ] -> lazyView loadMarkdown [ "Pickers"; "Installation.md" ]
     | [ Urls.Pickers; Urls.ReleaseNotes ] -> lazyView loadMarkdown [ "Pickers"; "RELEASE_NOTES.md" ]
     | [ Urls.Pickers; Urls.Contributing ] -> lazyView loadMarkdown [ contributing ]

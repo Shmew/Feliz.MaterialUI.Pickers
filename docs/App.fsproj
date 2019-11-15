@@ -8,6 +8,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="main.scss" />
+    <Compile Include="Pickers\Examples\DateTime\Basic.fs" />
+    <Compile Include="Pickers\Examples\DateTime\InlineMode.fs" />
+    <Compile Include="Pickers\Examples\DateTime\Customization.fs" />
+    <Compile Include="Pickers\Examples\Time\Basic.fs" />
+    <Compile Include="Pickers\Examples\Time\KeyboardInput.fs" />
+    <Compile Include="Pickers\Examples\Time\InlineMode.fs" />
+    <Compile Include="Pickers\Examples\Time\StaticMode.fs" />
+    <Compile Include="Pickers\Examples\Time\Seconds.fs" />
     <Compile Include="Pickers\Examples\Date\Basic.fs" />
     <Compile Include="Pickers\Examples\Date\KeyboardInput.fs" />
     <Compile Include="Pickers\Examples\Date\DifferentViews.fs" />
@@ -28,6 +36,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\Feliz.MaterialUI.Pickers.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pickers\Examples\Hooks\" />
+    <Folder Include="Pickers\Examples\StaticInner\" />
   </ItemGroup>
   <PropertyGroup>
     <NpmDependencies>

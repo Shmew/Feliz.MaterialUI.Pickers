@@ -10,44 +10,40 @@ let render = React.functionComponent(fun () ->
     let state,setState = React.useState(DateTime.Now)
 
     Mui.pickerUtilsProvider [
-        pickerUtilsProvider.utils.dateFns
+        Mui.grid [
+            grid.container true
+            grid.direction.row
+            grid.justify.spaceEvenly
 
-        prop.children [
-            Mui.grid [
-                grid.container true
-                grid.direction.row
-                grid.justify.spaceEvenly
-
-                prop.children [
-                    Mui.datePicker [
-                        datePicker.views datePicker.views.year
-                        datePicker.label "Year only"
-                        datePicker.value state
-                        datePicker.onChange setState
+            prop.children [
+                Mui.datePicker [
+                    datePicker.views datePicker.views.year
+                    datePicker.label "Year only"
+                    datePicker.value state
+                    datePicker.onChange setState
+                ]
+                Mui.datePicker [
+                    datePicker.views [
+                        datePicker.views.year
+                        datePicker.views.month
                     ]
-                    Mui.datePicker [
-                        datePicker.views [
-                            datePicker.views.year
-                            datePicker.views.month
-                        ]
-                        datePicker.label "Year and Month"
-                        datePicker.minDate (DateTime(2018, 03, 01))
-                        datePicker.maxDate (DateTime(2018, 06, 01))
-                        datePicker.value state
-                        datePicker.onChange setState
+                    datePicker.label "Year and Month"
+                    datePicker.minDate (DateTime(2018, 03, 01))
+                    datePicker.maxDate (DateTime(2018, 06, 01))
+                    datePicker.value state
+                    datePicker.onChange setState
+                ]
+                Mui.datePicker [
+                    datePicker.variant.inline'
+                    datePicker.openTo.year
+                    datePicker.views [
+                        datePicker.views.year
+                        datePicker.views.month
                     ]
-                    Mui.datePicker [
-                        datePicker.variant.inline'
-                        datePicker.openTo.year
-                        datePicker.views [
-                            datePicker.views.year
-                            datePicker.views.month
-                        ]
-                        datePicker.label "Year and Month"
-                        datePicker.helperText "Start from year selection"
-                        datePicker.value state
-                        datePicker.onChange setState
-                    ]
+                    datePicker.label "Year and Month"
+                    datePicker.helperText "Start from year selection"
+                    datePicker.value state
+                    datePicker.onChange setState
                 ]
             ]
         ]

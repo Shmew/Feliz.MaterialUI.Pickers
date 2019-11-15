@@ -21,29 +21,25 @@ let render = React.functionComponent(fun () ->
         }
 
     Mui.pickerUtilsProvider [
-        pickerUtilsProvider.utils.dateFns
+        Mui.grid [
+            grid.container true
+            grid.direction.row
+            grid.justify.spaceEvenly
 
-        prop.children [
-            Mui.grid [
-                grid.container true
-                grid.direction.row
-                grid.justify.spaceEvenly
+            prop.children [
+                Mui.datePicker [
+                    datePicker.label "With server data"
+                    datePicker.value selectedDate
+                    datePicker.onChange handleDateChange
+                    datePicker.onMonthChange handleMonthChange
+                    datePicker.renderDay (fun day selectedDate isInCurrentMonth dayComponent ->
+                        let isSelected = isInCurrentMonth && List.contains day.Day selectedDays
 
-                prop.children [
-                    Mui.datePicker [
-                        datePicker.label "With server data"
-                        datePicker.value selectedDate
-                        datePicker.onChange handleDateChange
-                        datePicker.onMonthChange handleMonthChange
-                        datePicker.renderDay (fun day selectedDate isInCurrentMonth dayComponent ->
-                            let isSelected = isInCurrentMonth && List.contains day.Day selectedDays
-
-                            Mui.badge [
-                                if isSelected then badge.badgeContent "🌚"
-                                prop.children dayComponent
-                            ]
-                        )
-                    ]
+                        Mui.badge [
+                            if isSelected then badge.badgeContent "🌚"
+                            prop.children dayComponent
+                        ]
+                    )
                 ]
             ]
         ]

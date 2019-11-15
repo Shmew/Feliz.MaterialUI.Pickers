@@ -1,10 +1,11 @@
-# Feliz.MaterialUI.Pickers (alpha) 
+# Feliz.MaterialUI.Pickers - Time Picker
 
-Fable bindings for [material-ui-pickers](https://github.com/mui-org/material-ui-pickers) with [Feliz](https://github.com/Zaid-Ajaj/Feliz) style api for use within MaterialUI.
+Taken from [material-ui-pickers - Time Picker](https://material-ui-pickers.dev/demo/timepicker)
 
-Here is a quick look:
+```fsharp:pickers-time-seconds
+[<RequireQualifiedAccess>]
+module Samples.Date.Basic
 
-```fs
 open Feliz
 open Feliz.MaterialUI
 open Feliz.MaterialUI.Pickers
@@ -54,5 +55,3 @@ let render = React.functionComponent(fun () ->
         ]
     ])
 ```
-
-Feliz.MaterialUI.Pickers has documentation at [Feliz.MaterialUI.Pickers](https://shmew.github.io/Feliz.MaterialUI.Pickers/) with live examples along side code samples.

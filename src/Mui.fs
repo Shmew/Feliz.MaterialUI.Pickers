@@ -16,4 +16,9 @@ type Mui =
     static member inline keyboardTimePicker props = createElement (import "KeyboardTimePicker" "@material-ui/pickers") props
     static member inline timePicker props = createElement (import "TimePicker" "@material-ui/pickers") props
     static member inline timePickerView props = createElement (import "TimePickerView" "@material-ui/pickers") props
-    static member inline pickerUtilsProvider props = createElement (import "MuiPickersUtilsProvider" "@material-ui/pickers") props
+    static member inline pickerUtilsProvider (props: IReactProperty list) = 
+        [ Interop.mkAttr "utils" (importDefault "@date-io/date-fns"); yield! props ] 
+        |> (createElement (import "MuiPickersUtilsProvider" "@material-ui/pickers"))
+    static member inline pickerUtilsProvider (children: ReactElement list) = 
+        [ Interop.mkAttr "utils" (importDefault "@date-io/date-fns"); pickerUtilsProvider.children children ] 
+        |> (createElement (import "MuiPickersUtilsProvider" "@material-ui/pickers"))

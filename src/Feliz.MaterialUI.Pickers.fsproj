@@ -8,7 +8,6 @@
     <Compile Include="Types.fs" />
     <Compile Include="Bindings.fs" />
     <Compile Include="Hooks.fs" />
-    <Compile Include="Mui.fs" />
     <Compile Include="ThemeOverrides.fs" />
     <Compile Include="ThemeProps.fs" />
     <Compile Include="Props\PickerModal.fs" />
@@ -22,6 +21,7 @@
     <Compile Include="Props\PickerUtilsProvider.fs" />
     <Compile Include="Props\TimePicker.fs" />
     <Compile Include="Props\TimePickerView.fs" />
+    <Compile Include="Mui.fs" />
     <None Include="paket.references" />
     <None Include="paket.template" />
   </ItemGroup>
@@ -32,7 +32,9 @@
     <NpmDependencies>
       <NpmPackage Name="@material-ui/pickers" Version="gte 3.2.7 lt 4" ResolutionStrategy="max" />
       <NpmPackage Name="@date-io/core" Version="gte 1.3.11 lt 2" ResolutionStrategy="max" />
+      <NpmPackage Name="@date-io/date-fns" Version="gte 1.3.11 lt 2" ResolutionStrategy="max" />
       <NpmPackage Name="prop-types" Version="gte 15.7.2 lt 16" ResolutionStrategy="max" />
+      <NpmPackage Name="date-fns" Version="gte 2.7.0 lt 3" ResolutionStrategy="max" />
     </NpmDependencies>
   </PropertyGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />

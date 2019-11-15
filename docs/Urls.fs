@@ -8,12 +8,23 @@ let [<Literal>] Installation = "Installation"
 let [<Literal>] Overview = "Overview"
 let [<Literal>] ReleaseNotes = "ReleaseNotes"
 
-/// Date Picker Examples
-let [<Literal>] Date = "Date"
+// Shared example links
 let [<Literal>] Basic = "Basic"
 let [<Literal>] KeyboardInput = "KeyboardInput"
-let [<Literal>] DifferentViews = "DifferentViews"
 let [<Literal>] InlineMode = "InlineMode"
 let [<Literal>] StaticMode = "StaticMode"
+
+// Date Picker examples
+let [<Literal>] Date = "Date"
+
+let [<Literal>] DifferentViews = "DifferentViews"
 let [<Literal>] Customization = "Customization"
 let [<Literal>] DynamicData = "DynamicData"
+
+// Date Time Picker examples
+let [<Literal>] DateTime = "DateTime"
+
+// Time Picker examples
+let [<Literal>] Time = "Time"
+
+let [<Literal>] Seconds = "Seconds"
