@@ -1,18 +1,14 @@
 ﻿[<RequireQualifiedAccess>]
 module Samples.Additional.Overrides
 
-open Fable.Core.JsInterop
 open Feliz
 open Feliz.MaterialUI
 open Feliz.MaterialUI.Pickers
 open System
 
-module Hooks =
-    let useTheme () : Theme = import "useTheme" "@material-ui/core/styles"
-
 let render = React.functionComponent(fun () ->
     let state,setState = React.useState(DateTime.Now)
-    let oldTheme = Hooks.useTheme() 
+    let oldTheme = Styles.useTheme()
 
     React.useEffect (( fun () ->
         oldTheme.addOverrides [

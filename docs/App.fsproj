@@ -4,9 +4,6 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <EmbeddedResource Remove="Plotly\**" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="main.scss" />
     <Compile Include="Pickers\Examples\Additional\UseUtils.fs" />
     <Compile Include="Pickers\Examples\Additional\Components.fs" />
