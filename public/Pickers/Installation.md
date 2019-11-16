@@ -17,6 +17,7 @@ npm install @material-ui/core
 npm install @material-ui/lab
 npm install @material-ui/pickers
 npm install date-fns
+npm install prop-types
 
 ___
 
@@ -28,6 +29,7 @@ yarn add @material-ui/core
 yarn add @material-ui/lab
 yarn add @material-ui/pickers
 yarn add date-fns
+yarn add prop-types
 ```
 
 ### Use Femto
