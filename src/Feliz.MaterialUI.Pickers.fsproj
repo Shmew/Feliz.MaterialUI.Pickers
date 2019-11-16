@@ -22,7 +22,6 @@
     <Compile Include="Props\TimePickerView.fs" />
     <Compile Include="Mui.fs" />
     <None Include="paket.references" />
-    <None Include="paket.template" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="*.fsproj; *.fs; *.js;" PackagePath="fable\" />

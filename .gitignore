@@ -28,6 +28,7 @@ build/
 [Oo]bj/
 [Pp]ublic/*bundle.js*
 [Pp]ublic/*.md
+Directory.Build.props
 
 # Exclude doc generation and logs
 docsrc/content/license.md

@@ -1,9 +1,0 @@
-﻿type project
-id Feliz.MaterialUI.Pickers
-authors Cody Johnson
-description
-    Fable bindings written in the Feliz-style for material-ui-pickers
-language
-    F#
-tags
-    fsharp, fable, react, MUI, material-ui, MaterialUI

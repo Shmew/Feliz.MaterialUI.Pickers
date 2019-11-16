@@ -30,14 +30,22 @@ let project = "Feliz.MaterialUI.Pickers"
 // (used as description in AssemblyInfo and as a short summary for NuGet package)
 let summary = "Fable bindings written in the Feliz-style for material-ui-pickers"
 
+// Project tags
+// (used as NuGet package tags)
+let tags = "fsharp fable react feliz f# MUI material-ui MaterialUI"
+
 // Author(s) of the project
 let author = "Cody Johnson"
+
+let docsUrl = "https://shmew.github.io/Feliz.MaterialUI.Pickers"
 
 // File system information
 let solutionFile = "Feliz.MaterialUI.Pickers.sln"
 
 // Github repo
 let repo = "https://github.com/Shmew/Feliz.MaterialUI.Pickers"
+
+let licenseUrl = "https://raw.githubusercontent.com/Shmew/Feliz.MaterialUI.Pickers/master/LICENSE"
 
 // Files to skip Fantomas formatting
 let excludeFantomas = []
@@ -247,20 +255,20 @@ Target.create "YarnInstall" <| fun _ ->
 // --------------------------------------------------------------------------------------
 // Build tasks
 
-Target.create "RunGenerators" <| fun _ ->
-    Trace.trace "Running generators..."
-    !! genGlob
-    |> List.ofSeq
-    |> List.iter (fun proj ->
-        let runArgs = sprintf "-c %s --no-restore -p %s" (configuration()) proj
-        
-        Trace.tracefn "Running dotnet command: %s" runArgs
-        
-        DotNet.exec id "run" runArgs
-        |> fun p ->
-            if p.ExitCode <> 0 then
-                p.Errors |> Seq.iter Trace.traceError
-                failwithf "Failed with exitcode %d" p.ExitCode)
+Target.create "CreateBuildProps" <| fun _ ->
+    [ "<Project xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">"
+      "<PropertyGroup>"
+      sprintf "<Description>%s</Description>" summary
+      sprintf "<PackageProjectUrl>%s</PackageProjectUrl>" docsUrl
+      sprintf "<PackageLicenseUrl>%s</PackageLicenseUrl>" licenseUrl
+      sprintf "<RepositoryUrl>%s</RepositoryUrl>" repo
+      sprintf "<PackageTags>%s</PackageTags>" tags
+      sprintf "<PackageReleaseNotes>%s</PackageReleaseNotes>" (List.head release.Notes)
+      sprintf "<Authors>%s</Authors>" author
+      sprintf "<Version>%s</Version>" (string release.SemVer)
+      "</PropertyGroup>"
+      "</Project>"]
+    |> File.write false (__SOURCE_DIRECTORY__ @@ "Directory.Build.props")
 
 Target.create "Build" <| fun _ ->
     let setParams (defaults:MSBuildParams) =
@@ -455,14 +463,14 @@ Target.create "PublishPages" <| fun _ ->
 // Build and release NuGet targets
 
 Target.create "NuGet" <| fun _ ->
-    Paket.pack(fun p ->
-        { p with
-            OutputPath = bin
-            Version = release.NugetVersion
-            ReleaseNotes = Fake.Core.String.toLines release.Notes
-            ProjectUrl = repo
-            MinimumFromLockFile = true
-            IncludeReferencedProjects = true })
+    !! (__SOURCE_DIRECTORY__ @@ sprintf "src/**/%s.fsproj" project)
+    ++ (__SOURCE_DIRECTORY__ @@ sprintf "src/%s.fsproj" project)
+    |> Seq.head
+    |> fun proj -> 
+        DotNet.pack 
+            ((fun p -> { p with OutputPath = Some bin; Configuration = DotNet.BuildConfiguration.Release } )
+             >> (fun p -> p.WithCommon (DotNet.Options.withWorkingDirectory (Path.GetDirectoryName proj)))) 
+            proj
 
 Target.create "NuGetPublish" <| fun _ ->
     Paket.push(fun p ->
@@ -513,7 +521,7 @@ Target.create "Publish" ignore
   ==> "Restore"
   ==> "PackageJson"
   ==> "YarnInstall"
-  ==> "RunGenerators"
+  ==> "CreateBuildProps"
   ==> "Build"
   ==> "RebuildSass"
   ==> "PostBuildClean" 
