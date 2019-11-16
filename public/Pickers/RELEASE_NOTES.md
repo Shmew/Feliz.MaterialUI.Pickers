@@ -10,3 +10,6 @@
 
 ### 0.2.1 - Saturday, November 16, 2019
 * Fix nupkg
+
+### 0.2.2 - Saturday, November 16, 2019
+* Fix nukg fable exports

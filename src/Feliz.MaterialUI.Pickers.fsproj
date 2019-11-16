@@ -24,7 +24,8 @@
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="*.fsproj; *.fs; *.js;" PackagePath="fable\" />
+    <Content Include="*.fsproj; *.fs; *.js" PackagePath="fable\" />
+    <Content Include="Props\" PackagePath="fable\Props" />
   </ItemGroup>
   <PropertyGroup>
     <NpmDependencies>
