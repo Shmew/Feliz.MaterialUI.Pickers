@@ -37,6 +37,7 @@ let render = React.functionComponent(fun () ->
                 ]
                 Mui.keyboardDatePicker [
                     keyboardDatePicker.autoOk true
+                    keyboardDatePicker.variant.inline'
                     keyboardDatePicker.format "MM/dd/yyyy"
                     keyboardDatePicker.label "With keyboard"
                     keyboardDatePicker.value state
