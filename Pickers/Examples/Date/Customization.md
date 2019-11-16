@@ -47,8 +47,6 @@ let private useStyles : unit -> _ = Styles.makeStyles <| fun (theme: Theme) ->
                style.custom ("borderBottomRightRadius", "50%") ] |}
 
 module DateFns =
-    open Fable.Core.JsInterop
-
     let startOfWeek d : DateTime = importDefault "date-fns/startOfWeek"
     let endOfWeek d : DateTime = importDefault "date-fns/endOfWeek"
     let isWithinInterval d interval : bool = importDefault "date-fns/isWithinInterval"
@@ -67,7 +65,7 @@ let render = React.functionComponent(fun () ->
         let start' = selectedDate |> DateFns.startOfWeek
         let end' = selectedDate |> DateFns.endOfWeek
 
-        let dayIsBetween = DateFns.isWithinInterval day (createObj !!["start",start'; "end",end' ])
+        let dayIsBetween = DateFns.isWithinInterval day (createObj !!["start", start'; "end", end' ])
         let isFirstDay = DateFns.isSameDay day start' 
         let isLastDay = DateFns.isSameDay day end'
 
@@ -99,16 +97,20 @@ let render = React.functionComponent(fun () ->
         else invalidLabel
 
     Mui.pickerUtilsProvider [
-        pickerUtilsProvider.utils.dateFns
+        Mui.grid [
+            grid.container true
+            grid.direction.row
+            grid.justify.spaceEvenly
 
-        prop.children [
-            Mui.datePicker [
-                datePicker.label "Week picker"
-                datePicker.value state
-                datePicker.onChange handleWeekChange
-                datePicker.renderDay renderDay
-                datePicker.labelFunc labelFunc
-                datePicker.animateYearScrolling true
+            prop.children [
+                Mui.datePicker [
+                    datePicker.label "Week picker"
+                    datePicker.value state
+                    datePicker.onChange handleWeekChange
+                    datePicker.renderDay renderDay
+                    datePicker.labelFunc labelFunc
+                    datePicker.animateYearScrolling true
+                ]
             ]
         ]
     ])

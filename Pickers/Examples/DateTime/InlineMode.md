@@ -4,8 +4,9 @@ Taken from [material-ui-pickers - Date & Time Picker](https://material-ui-picker
 
 ```fsharp:pickers-datetime-inlinemode
 [<RequireQualifiedAccess>]
-module Samples.Date.Basic
+module Samples.DateTime.InlineMode
 
+open Fable.Core
 open Feliz
 open Feliz.MaterialUI
 open Feliz.MaterialUI.Pickers
@@ -15,41 +16,27 @@ let render = React.functionComponent(fun () ->
     let state,setState = React.useState(DateTime.Now)
 
     Mui.pickerUtilsProvider [
-        pickerUtilsProvider.utils.dateFns
+        Mui.grid [
+            grid.container true
+            grid.direction.row
+            grid.justify.spaceEvenly
 
-        prop.children [
-            Mui.grid [
-                grid.container true
-                grid.direction.row
-                grid.justify.spaceBetween
-
-                prop.children [
-                    Mui.datePicker [
-                        datePicker.label "Basic Example"
-                        datePicker.value state
-                        datePicker.onChange setState
-                        datePicker.animateYearScrolling true
-                    ]
-                    Mui.datePicker [
-                        datePicker.autoOk true
-                        datePicker.label "Clearable"
-                        datePicker.disableFuture true
-                        datePicker.value state
-                        datePicker.onChange setState
-                    ]
-                    Mui.datePicker [
-                        datePicker.openTo.year
-                        datePicker.format "dd/MM/yyyy"
-                        datePicker.label "Date of Birth"
-                        datePicker.disableFuture true
-                        datePicker.views [
-                            datePicker.views.year
-                            datePicker.views.month
-                            datePicker.views.date
-                        ]
-                        datePicker.value state
-                        datePicker.onChange setState
-                    ]
+            prop.children [
+                Mui.dateTimePicker [
+                    dateTimePicker.variant.inline'
+                    dateTimePicker.label "Basic Example"
+                    dateTimePicker.value state
+                    dateTimePicker.onChange setState
+                ]
+                Mui.dateTimePicker [
+                    dateTimePicker.variant.inline'
+                    dateTimePicker.label "With keyboard"
+                    dateTimePicker.ampm false
+                    dateTimePicker.format "yyyy/MM/dd HH:mm"
+                    dateTimePicker.disablePast true
+                    dateTimePicker.value state
+                    dateTimePicker.onChange setState
+                    dateTimePicker.onError (fun _ d -> JS.console.log d)
                 ]
             ]
         ]

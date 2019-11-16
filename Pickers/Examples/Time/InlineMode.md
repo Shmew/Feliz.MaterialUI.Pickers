@@ -4,7 +4,7 @@ Taken from [material-ui-pickers - Time Picker](https://material-ui-pickers.dev/d
 
 ```fsharp:pickers-time-inlinemode
 [<RequireQualifiedAccess>]
-module Samples.Date.Basic
+module Samples.Time.InlineMode
 
 open Feliz
 open Feliz.MaterialUI
@@ -12,44 +12,27 @@ open Feliz.MaterialUI.Pickers
 open System
 
 let render = React.functionComponent(fun () ->
-    let state,setState = React.useState(DateTime.Now)
+    let state,setState = React.useState(DateTime.Parse "2018-01-01T00:00:00.000Z")
 
     Mui.pickerUtilsProvider [
-        pickerUtilsProvider.utils.dateFns
+        Mui.grid [
+            grid.container true
+            grid.direction.row
+            grid.justify.spaceEvenly
 
-        prop.children [
-            Mui.grid [
-                grid.container true
-                grid.direction.row
-                grid.justify.spaceBetween
-
-                prop.children [
-                    Mui.datePicker [
-                        datePicker.label "Basic Example"
-                        datePicker.value state
-                        datePicker.onChange setState
-                        datePicker.animateYearScrolling true
-                    ]
-                    Mui.datePicker [
-                        datePicker.autoOk true
-                        datePicker.label "Clearable"
-                        datePicker.disableFuture true
-                        datePicker.value state
-                        datePicker.onChange setState
-                    ]
-                    Mui.datePicker [
-                        datePicker.openTo.year
-                        datePicker.format "dd/MM/yyyy"
-                        datePicker.label "Date of Birth"
-                        datePicker.disableFuture true
-                        datePicker.views [
-                            datePicker.views.year
-                            datePicker.views.month
-                            datePicker.views.date
-                        ]
-                        datePicker.value state
-                        datePicker.onChange setState
-                    ]
+            prop.children [
+                Mui.timePicker [
+                    timePicker.variant.inline'
+                    timePicker.label "Inline mode"
+                    timePicker.value state
+                    timePicker.onChange setState
+                ]
+                Mui.keyboardTimePicker [
+                    keyboardTimePicker.ampm false
+                    keyboardTimePicker.variant.inline'
+                    keyboardTimePicker.label "With keyboard"
+                    keyboardTimePicker.value state
+                    keyboardTimePicker.onChange (fun d _ -> setState d)
                 ]
             ]
         ]

@@ -4,7 +4,7 @@ Taken from [material-ui-pickers - Time Picker](https://material-ui-pickers.dev/d
 
 ```fsharp:pickers-time-staticmode
 [<RequireQualifiedAccess>]
-module Samples.Date.Basic
+module Samples.Time.StaticMode
 
 open Feliz
 open Feliz.MaterialUI
@@ -15,41 +15,27 @@ let render = React.functionComponent(fun () ->
     let state,setState = React.useState(DateTime.Now)
 
     Mui.pickerUtilsProvider [
-        pickerUtilsProvider.utils.dateFns
+        Mui.grid [
+            grid.container true
+            grid.direction.row
+            grid.justify.spaceEvenly
 
-        prop.children [
-            Mui.grid [
-                grid.container true
-                grid.direction.row
-                grid.justify.spaceBetween
-
-                prop.children [
-                    Mui.datePicker [
-                        datePicker.label "Basic Example"
-                        datePicker.value state
-                        datePicker.onChange setState
-                        datePicker.animateYearScrolling true
-                    ]
-                    Mui.datePicker [
-                        datePicker.autoOk true
-                        datePicker.label "Clearable"
-                        datePicker.disableFuture true
-                        datePicker.value state
-                        datePicker.onChange setState
-                    ]
-                    Mui.datePicker [
-                        datePicker.openTo.year
-                        datePicker.format "dd/MM/yyyy"
-                        datePicker.label "Date of Birth"
-                        datePicker.disableFuture true
-                        datePicker.views [
-                            datePicker.views.year
-                            datePicker.views.month
-                            datePicker.views.date
-                        ]
-                        datePicker.value state
-                        datePicker.onChange setState
-                    ]
+            prop.children [
+                Mui.timePicker [
+                    timePicker.autoOk true
+                    timePicker.variant.static'
+                    timePicker.openTo.hours
+                    timePicker.value state
+                    timePicker.onChange setState
+                ]
+                Mui.timePicker [
+                    timePicker.autoOk true
+                    timePicker.ampm false
+                    timePicker.variant.static'
+                    timePicker.orientation.landscape
+                    timePicker.openTo.minutes
+                    timePicker.value state
+                    timePicker.onChange setState
                 ]
             ]
         ]
