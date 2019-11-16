@@ -22,10 +22,7 @@
     <Compile Include="Props\TimePickerView.fs" />
     <Compile Include="Mui.fs" />
     <None Include="paket.references" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="*.fsproj; *.fs; *.js" PackagePath="fable\" />
-    <Content Include="Props\*.*" PackagePath="fable\Props" />
+    <None Include="paket.template" />
   </ItemGroup>
   <PropertyGroup>
     <NpmDependencies>
