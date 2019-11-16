@@ -7,3 +7,6 @@
 
 ### 0.2.0 - Friday, November 15, 2019
 * Fully functional API
+
+### 0.2.1 - Saturday, November 16, 2019
+* Fix nupkg
