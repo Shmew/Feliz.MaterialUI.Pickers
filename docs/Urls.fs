@@ -14,6 +14,13 @@ let [<Literal>] KeyboardInput = "KeyboardInput"
 let [<Literal>] InlineMode = "InlineMode"
 let [<Literal>] StaticMode = "StaticMode"
 
+// Additional examples
+let [<Literal>] Additional = "Additional"
+
+let [<Literal>] UseUtils = "UseUtils"
+let [<Literal>] Components = "Components"
+let [<Literal>] ThemeOverrides = "ThemeOverrides"
+
 // Date Picker examples
 let [<Literal>] Date = "Date"
 

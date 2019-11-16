@@ -8,6 +8,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="main.scss" />
+    <Compile Include="Pickers\Examples\Additional\UseUtils.fs" />
+    <Compile Include="Pickers\Examples\Additional\Components.fs" />
+    <Compile Include="Pickers\Examples\Additional\ThemeOverrides.fs" />
     <Compile Include="Pickers\Examples\DateTime\Basic.fs" />
     <Compile Include="Pickers\Examples\DateTime\InlineMode.fs" />
     <Compile Include="Pickers\Examples\DateTime\Customization.fs" />
@@ -36,10 +39,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\Feliz.MaterialUI.Pickers.fsproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pickers\Examples\Hooks\" />
-    <Folder Include="Pickers\Examples\StaticInner\" />
   </ItemGroup>
   <PropertyGroup>
     <NpmDependencies>

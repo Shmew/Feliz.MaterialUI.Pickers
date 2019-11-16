@@ -1,7 +1,7 @@
 ﻿namespace Feliz.MaterialUI.Pickers
 
 type IViewProperty = interface end
-type IUtilsProperty = interface end
+type IStaticStateHookProperty = interface end
 
 // Theme overrides
 type IMuiPickersDayOverrideRule = interface end

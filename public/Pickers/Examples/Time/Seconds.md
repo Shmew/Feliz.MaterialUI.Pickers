@@ -4,8 +4,9 @@ Taken from [material-ui-pickers - Time Picker](https://material-ui-pickers.dev/d
 
 ```fsharp:pickers-time-seconds
 [<RequireQualifiedAccess>]
-module Samples.Date.Basic
+module Samples.Time.Seconds
 
+open Fable.Core.JsInterop
 open Feliz
 open Feliz.MaterialUI
 open Feliz.MaterialUI.Pickers
@@ -15,41 +16,36 @@ let render = React.functionComponent(fun () ->
     let state,setState = React.useState(DateTime.Now)
 
     Mui.pickerUtilsProvider [
-        pickerUtilsProvider.utils.dateFns
+        Mui.grid [
+            grid.container true
+            grid.direction.row
+            grid.justify.spaceEvenly
 
-        prop.children [
-            Mui.grid [
-                grid.container true
-                grid.direction.row
-                grid.justify.spaceBetween
-
-                prop.children [
-                    Mui.datePicker [
-                        datePicker.label "Basic Example"
-                        datePicker.value state
-                        datePicker.onChange setState
-                        datePicker.animateYearScrolling true
+            prop.children [
+                Mui.timePicker [
+                    timePicker.ampm false
+                    timePicker.openTo.hours
+                    timePicker.views [
+                        timePicker.views.hours
+                        timePicker.views.minutes
+                        timePicker.views.seconds
                     ]
-                    Mui.datePicker [
-                        datePicker.autoOk true
-                        datePicker.label "Clearable"
-                        datePicker.disableFuture true
-                        datePicker.value state
-                        datePicker.onChange setState
+                    timePicker.format "HH:mm:ss"
+                    timePicker.label "With seconds"
+                    timePicker.value state
+                    timePicker.onChange setState
+                ]
+                Mui.timePicker [
+                    timePicker.ampm false
+                    timePicker.openTo.minutes
+                    timePicker.views [
+                        timePicker.views.minutes
+                        timePicker.views.seconds
                     ]
-                    Mui.datePicker [
-                        datePicker.openTo.year
-                        datePicker.format "dd/MM/yyyy"
-                        datePicker.label "Date of Birth"
-                        datePicker.disableFuture true
-                        datePicker.views [
-                            datePicker.views.year
-                            datePicker.views.month
-                            datePicker.views.date
-                        ]
-                        datePicker.value state
-                        datePicker.onChange setState
-                    ]
+                    timePicker.format "mm:ss"
+                    timePicker.label "Minutes and seconds"
+                    timePicker.value state
+                    timePicker.onChange setState
                 ]
             ]
         ]

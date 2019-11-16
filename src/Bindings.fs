@@ -6,16 +6,16 @@ module Bindings =
 
     [<AllowNullLiteral>]
     type IDateUtils =
-        abstract locale: obj option with get, set
-        abstract moment: obj option with get, set
-        abstract dayjs: obj option with get, set
-        abstract yearFormat: string with get, set
-        abstract yearMonthFormat: string with get, set
-        abstract dateTime12hFormat: string with get, set
-        abstract dateTime24hFormat: string with get, set
-        abstract time12hFormat: string with get, set
-        abstract time24hFormat: string with get, set
-        abstract dateFormat: string with get, set
+        abstract locale: obj option
+        abstract moment: obj option
+        abstract dayjs: obj option
+        abstract yearFormat: string
+        abstract yearMonthFormat: string
+        abstract dateTime12hFormat: string
+        abstract dateTime24hFormat: string
+        abstract time12hFormat: string
+        abstract time24hFormat: string
+        abstract dateFormat: string
         abstract date: ?value: obj -> DateTime option
         abstract parse: value: string * format: string -> DateTime option
         abstract isNull: value: DateTime option -> bool

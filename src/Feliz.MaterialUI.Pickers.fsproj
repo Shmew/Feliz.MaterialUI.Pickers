@@ -9,7 +9,6 @@
     <Compile Include="Bindings.fs" />
     <Compile Include="Hooks.fs" />
     <Compile Include="ThemeOverrides.fs" />
-    <Compile Include="ThemeProps.fs" />
     <Compile Include="Props\PickerModal.fs" />
     <Compile Include="Props\Calendar.fs" />
     <Compile Include="Props\ClockView.fs" />

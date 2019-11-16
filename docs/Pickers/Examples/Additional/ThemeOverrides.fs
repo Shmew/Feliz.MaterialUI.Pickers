@@ -1,18 +1,28 @@
-# Feliz.MaterialUI.Pickers - Date Picker
+﻿[<RequireQualifiedAccess>]
+module Samples.Additional.Overrides
 
-Taken from [material-ui-pickers - Date Picker](https://material-ui-pickers.dev/demo/datepicker)
-
-```fsharp:pickers-date-basic
-[<RequireQualifiedAccess>]
-module Samples.Date.Basic
-
+open Fable.Core.JsInterop
 open Feliz
 open Feliz.MaterialUI
 open Feliz.MaterialUI.Pickers
 open System
 
+module Hooks =
+    let useTheme () : Theme = import "useTheme" "@material-ui/core/styles"
+
 let render = React.functionComponent(fun () ->
     let state,setState = React.useState(DateTime.Now)
+    let oldTheme = Hooks.useTheme() 
+
+    React.useEffect (( fun () ->
+        oldTheme.addOverrides [
+            overrides.muiPickersDatePickerRoot [
+                overrides.muiPickersDatePickerRoot.toolbar [
+                    style.backgroundColor color.red
+                ]
+            ] 
+        ]
+    ), [| oldTheme :> obj |])
 
     Mui.pickerUtilsProvider [
         Mui.grid [
@@ -51,4 +61,3 @@ let render = React.functionComponent(fun () ->
             ]
         ]
     ])
-```

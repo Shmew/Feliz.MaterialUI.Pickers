@@ -150,18 +150,15 @@ type Highlight =
 
 type Model = 
     { CurrentPath : string list
-      CurrentTab: string list
       Store: Store.Model }
 
 
 let init () = 
     { CurrentPath = [ ]
-      CurrentTab = [ ]
       Store = Store.init() }, Cmd.none
 
 type Msg =
     | StoreMsg of Store.Msg
-    | TabToggled of string list
     | UrlChanged of string list
 
 let update msg model =
@@ -169,31 +166,29 @@ let update msg model =
     | StoreMsg msg' ->
         let m, cmd = Store.update msg' model.Store
         { model with Store = m }, Cmd.map StoreMsg cmd
-    | TabToggled tabs ->
-        match tabs with
-        | [ ] -> { model with CurrentTab = [ ] }, Cmd.none
-        | _ -> { model with CurrentTab = tabs }, Cmd.none
     | UrlChanged segments -> 
-        { model with CurrentPath = segments }, 
-        match model.CurrentTab with
-        | [ ] when segments.Length > 2 -> 
-            segments
-            |> TabToggled
-            |> Cmd.ofMsg
-        | _ -> Cmd.none
+        { model with CurrentPath = segments }, Cmd.none
 
-let centeredSpinner =
+let centeredSpinner = React.functionComponent (fun () ->
+    let c = AppTheme.useStyles()
+
     Html.div [
-        prop.style [
-            style.textAlign.center
-            style.marginLeft length.auto
-            style.marginRight length.auto
-            style.marginTop 50
-        ]
+        prop.className c.fullSizeCard
         prop.children [
-            Mui.circularProgress []
+            Mui.skeleton [
+                skeleton.variant.text
+                skeleton.height (length.em 3)
+                skeleton.width (length.percent 40)
+            ]
+
+            Mui.skeleton [
+                prop.style [ style.marginTop 150 ]
+                skeleton.variant.rect
+                skeleton.height 500
+                skeleton.width (length.percent 100)
+            ]
         ]
-    ]
+    ])
 
 let samples = 
     let date =
@@ -217,7 +212,12 @@ let samples =
           "pickers-datetime-inlinemode", Samples.DateTime.InlineMode.render()
           "pickers-datetime-customization", Samples.DateTime.Customization.render() ]
 
-    [ date; time; dateTime ]
+    let additional =
+        [ "pickers-additional-useutils", Samples.Additional.UseUtils.render() 
+          "pickers-additional-components", Samples.Additional.Components.render()
+          "pickers-additional-themeoverrides", Samples.Additional.Overrides.render() ]
+
+    [ date; time; dateTime; additional ]
     |> List.concat
 
 module MarkdownView =
@@ -377,7 +377,7 @@ module MarkdownLoader =
     let render path (model: Model) dispatch =
         match model.State with
         | Initial -> Html.none
-        | Loading -> centeredSpinner
+        | Loading -> centeredSpinner()
         | LoadedMarkdown content -> MarkdownView.render (resolvePath path) content
         | Errored error ->
             Html.h1 [
@@ -390,11 +390,13 @@ module MarkdownLoader =
 
 let loadMarkdown (path: string list) = MarkdownLoader.loadMarkdown' path
 
-let nestedMenuList' = FunctionComponent.Of((fun (model: Model, name: string, basePath: string list, elems: (string list -> Fable.React.ReactElement) list, dispatch) ->
+let nestedMenuList' = FunctionComponent.Of((fun (name: string, basePath: string list, elems: (string list -> Fable.React.ReactElement) list) ->
     let c = AppTheme.useStyles()
 
     Mui.listItem [
         prop.className c.unselectable
+        listItem.dense true
+
         listItem.children [
             Mui.grid [
                 grid.container true
@@ -409,9 +411,9 @@ let nestedMenuList' = FunctionComponent.Of((fun (model: Model, name: string, bas
         ]
     ]), memoizeWith = memoEqualsButFunctions)
 
-let sidebar (model: Model) dispatch =
+let sidebar (model: Model) =
     let nestedMenuList (name: string) (basePath: string list) (items: (string list -> Fable.React.ReactElement) list) =
-        nestedMenuList'(model, name, basePath, items, dispatch)
+        nestedMenuList'(name, basePath, items)
 
     let menuItem (name: string) (path: string list) =
         Mui.link [
@@ -461,6 +463,12 @@ let sidebar (model: Model) dispatch =
             nestedMenuItem "Inline Mode" [ Urls.InlineMode ]
             nestedMenuItem "Customization" [ Urls.Customization ]
         ]
+
+        nestedMenuList "Additional Examples" [ Urls.Pickers; Urls.Examples; Urls.Additional ] [
+            nestedMenuItem "UseUtils Hook" [ Urls.UseUtils ]
+            nestedMenuItem "Static Components" [ Urls.Components ]
+            nestedMenuItem "Theme Overrides" [ Urls.ThemeOverrides ]
+        ]
     ]
 
 let readme = sprintf "https://raw.githubusercontent.com/%s/%s/master/README.md"
@@ -495,9 +503,16 @@ let examples (currentPath: string list) =
         | [ Urls.Customization ] -> [ "Customization.md" ]
         | _ -> []
         |> List.append [ Urls.DateTime ]
+    | Urls.Additional :: rest -> 
+        match rest with
+        | [ Urls.UseUtils ] -> [ "UseUtils.md" ]
+        | [ Urls.Components ] -> [ "Components.md" ]
+        | [ Urls.ThemeOverrides ] -> [ "ThemeOverrides.md" ]
+        | _ -> []
+        |> List.append [ Urls.Additional ]
     | _ -> []
 
-let content model dispatch =
+let content model =
     let tryTakePath (basePath: string list) (path: string list) =
         let num = path.Length
         if basePath.Length >= num then
@@ -580,7 +595,7 @@ let render' = React.functionComponent (fun (input: {| model: Model; dispatch: Ms
                                     Mui.list [ 
                                         prop.className "scrollbar"
                                         list.component' "nav"
-                                        list.children (sidebar input.model input.dispatch)
+                                        list.children (sidebar input.model)
                                     ] 
                                 ] 
                             ]
@@ -592,7 +607,7 @@ let render' = React.functionComponent (fun (input: {| model: Model; dispatch: Ms
                             Mui.card [
                                 prop.className c.contentCard
                                 card.raised true
-                                prop.children (content input.model input.dispatch)
+                                prop.children (content input.model)
                             ]
                         ] 
                     ] 
