@@ -7,6 +7,7 @@ let [<Literal>] Examples = "Examples"
 let [<Literal>] Installation = "Installation"
 let [<Literal>] Overview = "Overview"
 let [<Literal>] ReleaseNotes = "ReleaseNotes"
+let [<Literal>] DateUtilityInterface = "DateUtilityInterface"
 
 // Shared example links
 let [<Literal>] Basic = "Basic"

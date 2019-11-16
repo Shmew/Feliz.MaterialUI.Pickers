@@ -469,6 +469,8 @@ let sidebar (model: Model) =
             nestedMenuItem "Static Components" [ Urls.Components ]
             nestedMenuItem "Theme Overrides" [ Urls.ThemeOverrides ]
         ]
+
+        menuItem "Date Utility Interface" [ Urls.Pickers; Urls.DateUtilityInterface ]
     ]
 
 let readme = sprintf "https://raw.githubusercontent.com/%s/%s/master/README.md"
@@ -524,6 +526,7 @@ let content model =
     | [ Urls.Pickers; Urls.Installation ] -> lazyView loadMarkdown [ "Pickers"; "Installation.md" ]
     | [ Urls.Pickers; Urls.ReleaseNotes ] -> lazyView loadMarkdown [ "Pickers"; "RELEASE_NOTES.md" ]
     | [ Urls.Pickers; Urls.Contributing ] -> lazyView loadMarkdown [ contributing ]
+    | [ Urls.Pickers; Urls.DateUtilityInterface ] -> lazyView loadMarkdown [ "Pickers"; "DateUtilityInterface.md" ]
     | _ when tryTakePath model.CurrentPath [ Urls.Pickers; Urls.Examples ] -> 
         match model.CurrentPath |> List.skip 1 with
         | datePath when tryTakePath datePath [ Urls.Examples ] -> datePath |> List.skip 1 |> examples
@@ -593,7 +596,6 @@ let render' = React.functionComponent (fun (input: {| model: Model; dispatch: Ms
                                         prop.className c.toolbar 
                                     ]
                                     Mui.list [ 
-                                        prop.className "scrollbar"
                                         list.component' "nav"
                                         list.children (sidebar input.model)
                                     ] 
