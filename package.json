@@ -1,6 +1,6 @@
 {
   "name": "feliz.-material-u-i.-pickers",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Fable bindings written in the Feliz-style for material-ui-pickers",
   "homepage": "https://github.com/Shmew/Feliz.MaterialUI.Pickers",
   "bugs": {

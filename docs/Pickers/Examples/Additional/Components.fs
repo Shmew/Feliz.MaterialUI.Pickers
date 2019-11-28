@@ -9,7 +9,7 @@ open System
 let render = React.functionComponent(fun () ->
     let state,setState = React.useState(DateTime.Now)
 
-    Mui.pickerUtilsProvider [
+    Mui.pickerUtilsProvider (
         Mui.grid [
             grid.container true
             grid.direction.row
@@ -43,4 +43,4 @@ let render = React.functionComponent(fun () ->
                 ]
             ]
         ]
-    ])
+    ))

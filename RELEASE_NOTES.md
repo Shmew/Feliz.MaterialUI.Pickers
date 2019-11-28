@@ -1,3 +1,6 @@
+### 0.3.0 - Saturday, November 16, 2019
+* Add overloads for pickerUtils to support single elements/props
+
 ### 0.2.3 - Saturday, November 16, 2019
 * Fix nukg fable exports
 
