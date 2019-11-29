@@ -50,13 +50,13 @@ module DateFns =
     let isValid d : bool = importDefault "date-fns/isValid"
 
 let render = React.functionComponent(fun () ->
-    let state,setState = React.useState(DateTime.Now)
+    let state,setState = React.useState(Some DateTime.Now)
 
     let c = useStyles()
 
-    let handleWeekChange (date: DateTime) = date |> DateFns.startOfWeek |> setState
+    let handleWeekChange date = date |> Option.map DateFns.startOfWeek |> setState
 
-    let renderDay (day: DateTime) (selectedDate: DateTime) dayInCurrentMonth _ =
+    let renderDay day selectedDate dayInCurrentMonth _ =
         let start' = selectedDate |> DateFns.startOfWeek
         let end' = selectedDate |> DateFns.endOfWeek
 

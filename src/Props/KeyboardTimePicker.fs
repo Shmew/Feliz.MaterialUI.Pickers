@@ -44,7 +44,7 @@ type keyboardTimePicker =
     /// Signature:
     ///
     /// (date: DateIOType, invalidLabel: string) => string
-    static member inline labelFunc (handler: DateTime -> string -> string) = Interop.mkAttr "labelFunc" (Func<_,_,_> handler)
+    static member inline labelFunc (handler: DateTime option -> string -> string) = Interop.mkAttr "labelFunc" (Func<_,_,_> handler)
     /// Custom mask. Can be used to override generate from format. (e.g. __/__/____ __:__)
     static member inline mask (value: string) = Interop.mkAttr "mask" value
     /// Char string that will be replaced with number (for "_" mask will be "__/__/____")
@@ -66,13 +66,13 @@ type keyboardTimePicker =
     /// Signature:
     ///
     /// (date: DateIOType) => void
-    static member inline onAccept (handler: DateTime -> unit) = Interop.mkAttr "onAccept" handler
+    static member inline onAccept (handler: DateTime option -> unit) = Interop.mkAttr "onAccept" handler
     /// Keyboard onChange
     ///
     /// Signature:
     ///
     /// (date: DateIOType, value?: string | null) => void
-    static member inline onChange (handler: DateTime -> string option -> unit) = Interop.mkAttr "onChange" (Func<_,_,_> handler)
+    static member inline onChange (handler: DateTime option -> string option -> unit) = Interop.mkAttr "onChange" (Func<_,_,_> handler)
     /// On close callback
     ///
     /// Signature:
@@ -84,7 +84,7 @@ type keyboardTimePicker =
     /// Signature:
     ///
     /// (error: ReactNode, value: DateIOType) => void
-    static member inline onError (handler: ReactElement -> DateTime -> unit) = Interop.mkAttr "onError" handler
+    static member inline onError (handler: ReactElement -> DateTime option -> unit) = Interop.mkAttr "onError" handler
     /// On open callback
     ///
     /// Signature:
@@ -106,7 +106,7 @@ type keyboardTimePicker =
     /// Signature:
     ///
     /// (day: DateIOType, selectedDate: DateIOType, dayInCurrentMonth: boolean, dayComponent: Element) => Element
-    static member inline renderDay (render: DateTime -> DateTime -> bool -> ReactElement -> ReactElement) = Interop.mkAttr "renderDay" (Func<_,_,_,_,_> render)
+    static member inline renderDay (render: DateTime option -> DateTime option -> bool -> ReactElement -> ReactElement) = Interop.mkAttr "renderDay" (Func<_,_,_,_,_> render)
     /// Custom formatter to be passed into Rifm component
     ///
     /// Signature:
@@ -118,7 +118,7 @@ type keyboardTimePicker =
     /// Component that will replace default toolbar renderer
     static member inline toolbarComponent (value: ReactElementType) = Interop.mkAttr "ToolbarComponent" value
     /// Picker value
-    static member inline value (value: DateTime) = Interop.mkAttr "value" value
+    static member inline value (value: DateTime option) = Interop.mkAttr "value" value
     /// Views to show
     static member inline views (value: #IViewProperty) = Interop.mkAttr "views" (value |> Array.singleton |> ResizeArray)
     /// Views to show

@@ -8,7 +8,7 @@ open Feliz.MaterialUI.Pickers
 open System
 
 let render = React.functionComponent(fun () ->
-    let state,setState = React.useState(DateTime.Now)
+    let state,setState = React.useState(Some DateTime.Now)
 
     Mui.pickerUtilsProvider [
         Mui.grid [
@@ -31,7 +31,7 @@ let render = React.functionComponent(fun () ->
                     dateTimePicker.disablePast true
                     dateTimePicker.value state
                     dateTimePicker.onChange setState
-                    dateTimePicker.onError (fun _ d -> JS.console.log d)
+                    dateTimePicker.onError (fun _ (d: DateTime option) -> JS.console.log d)
                 ]
             ]
         ]

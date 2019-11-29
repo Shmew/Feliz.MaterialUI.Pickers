@@ -1,3 +1,6 @@
+### 0.5.0 - Friday, November 29, 2019
+* Moved all DateTime callbacks and value initialization to options
+
 ### 0.4.0 - Thursday, November 28, 2019
 * Fix some type signatures in the date interface
 

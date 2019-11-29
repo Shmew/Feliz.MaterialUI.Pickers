@@ -10,7 +10,7 @@ open System
 
 let render = React.functionComponent(fun () ->
     let (clearedDate : DateTime option), handleClearedDateChange = React.useState(None)
-    let selectedDate, handleDateChange = React.useState(DateTime.Parse "2019-01-01T18:54")
+    let selectedDate, handleDateChange = React.useState(Some (DateTime.Parse "2019-01-01T18:54"))
 
     Mui.pickerUtilsProvider [
         Mui.grid [
@@ -54,13 +54,13 @@ let render = React.functionComponent(fun () ->
                     keyboardDateTimePicker.format "yyyy/MM/dd hh:mm a"
                     keyboardDateTimePicker.value selectedDate
                     keyboardDateTimePicker.onChange (fun d _ -> d |> handleDateChange)
-                    keyboardDateTimePicker.onError (fun _ d -> JS.console.log d)
+                    keyboardDateTimePicker.onError (fun _ (d: DateTime option) -> JS.console.log d)
                 ]
                 Mui.dateTimePicker [
                     dateTimePicker.clearable true
                     dateTimePicker.helperText "Clear Initial State"
                     dateTimePicker.value clearedDate
-                    dateTimePicker.onChange (Some >> handleClearedDateChange)
+                    dateTimePicker.onChange handleClearedDateChange
                 ]
             ]
         ]

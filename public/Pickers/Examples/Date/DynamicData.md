@@ -15,7 +15,7 @@ let rng = Random()
 
 let render = React.functionComponent(fun () ->
     let selectedDays, setSelectedDays = React.useState([ 1; 2; 15 ])
-    let selectedDate, handleDateChange = React.useState(DateTime.Now)
+    let selectedDate, handleDateChange = React.useState(Some DateTime.Now)
 
     let handleMonthChange _ =
         promise {
@@ -37,8 +37,11 @@ let render = React.functionComponent(fun () ->
                     datePicker.value selectedDate
                     datePicker.onChange handleDateChange
                     datePicker.onMonthChange handleMonthChange
-                    datePicker.renderDay (fun day selectedDate isInCurrentMonth dayComponent ->
-                        let isSelected = isInCurrentMonth && List.contains day.Day selectedDays
+                    datePicker.renderDay (fun day _ isInCurrentMonth dayComponent ->
+                        let isSelected = 
+                            match day with
+                            | Some d -> isInCurrentMonth && List.contains d.Day selectedDays
+                            | _ -> false
 
                         Mui.badge [
                             if isSelected then badge.badgeContent "🌚"

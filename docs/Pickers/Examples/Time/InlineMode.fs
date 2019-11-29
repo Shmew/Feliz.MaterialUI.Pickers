@@ -7,7 +7,7 @@ open Feliz.MaterialUI.Pickers
 open System
 
 let render = React.functionComponent(fun () ->
-    let state,setState = React.useState(DateTime.Parse "2018-01-01T00:00:00.000Z")
+    let state,setState = React.useState(Some (DateTime.Parse "2018-01-01T00:00:00.000Z"))
 
     Mui.pickerUtilsProvider [
         Mui.grid [

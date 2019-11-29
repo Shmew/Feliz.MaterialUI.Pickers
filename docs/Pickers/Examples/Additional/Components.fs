@@ -7,7 +7,7 @@ open Feliz.MaterialUI.Pickers
 open System
 
 let render = React.functionComponent(fun () ->
-    let state,setState = React.useState(DateTime.Now)
+    let state,setState = React.useState(Some DateTime.Now)
 
     Mui.pickerUtilsProvider (
         Mui.grid [
@@ -29,7 +29,7 @@ let render = React.functionComponent(fun () ->
                     ]
                     Mui.button [
                         button.fullWidth true
-                        prop.onClick <| fun _ -> setState DateTime.Now
+                        prop.onClick <| fun _ -> setState (Some DateTime.Now)
                         prop.text (sprintf "Clear date %O" state)
                     ]
                 ]

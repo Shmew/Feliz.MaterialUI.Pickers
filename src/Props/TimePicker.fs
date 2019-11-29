@@ -34,7 +34,7 @@ type timePicker =
     /// Signature:
     ///
     /// (date: DateIOType, invalidLabel: string) => string
-    static member inline labelFunc (handler: DateTime -> string -> string) = Interop.mkAttr "labelFunc" (Func<_,_,_> handler)
+    static member inline labelFunc (handler: DateTime option -> string -> string) = Interop.mkAttr "labelFunc" (Func<_,_,_> handler)
     /// Error message, shown if date is more then maximal date
     static member inline maxDateMessage (value: ReactElement) = Interop.mkAttr "maxDateMessage" value
     /// Error message, shown if date is more then maximal date
@@ -52,19 +52,19 @@ type timePicker =
     /// Signature:
     ///
     /// (date: DateIOType) => void
-    static member inline onAccept (handler: DateTime -> unit) = Interop.mkAttr "onAccept" handler
+    static member inline onAccept (handler: DateTime option -> unit) = Interop.mkAttr "onAccept" handler
     /// DatePicker onChange
     ///
     /// Signature:
     ///
     /// (date: DateIOType) => void
-    static member inline onChange (handler: DateTime -> unit) = Interop.mkAttr "onChange" handler
+    static member inline onChange (handler: DateTime option -> unit) = Interop.mkAttr "onChange" handler
     /// Calendar onChange
     ///
     /// Signature:
     ///
     /// (date: any, isFinish?: boolean) => void
-    static member inline onChange (handler: DateTime -> bool -> unit) = Interop.mkAttr "onChange" (Func<_,_,_> handler)
+    static member inline onChange (handler: DateTime option -> bool -> unit) = Interop.mkAttr "onChange" (Func<_,_,_> handler)
     /// On close callback
     ///
     /// Signature:
@@ -76,7 +76,7 @@ type timePicker =
     /// Signature:
     ///
     /// (error: ReactNode, value: DateIOType) => void
-    static member inline onError (handler: ReactElement -> DateTime -> unit) = Interop.mkAttr "onError" handler
+    static member inline onError (handler: ReactElement -> DateTime option -> unit) = Interop.mkAttr "onError" handler
     /// On open callback
     ///
     /// Signature:
@@ -94,13 +94,15 @@ type timePicker =
     /// Signature:
     ///
     /// (day: DateIOType, selectedDate: DateIOType, dayInCurrentMonth: boolean, dayComponent: Element) => Element
-    static member inline renderDay (render: DateTime -> DateTime -> bool -> ReactElement -> ReactElement) = Interop.mkAttr "renderDay" (Func<_,_,_,_,_> render)
+    static member inline renderDay (render: DateTime option -> DateTime option -> bool -> ReactElement -> ReactElement) = Interop.mkAttr "renderDay" (Func<_,_,_,_,_> render)
     /// Override input component
     static member inline textFieldComponent (value: ReactElementType) = Interop.mkAttr "TextFieldComponent" value
     /// Component that will replace default toolbar renderer
     static member inline toolbarComponent (value: ReactElementType) = Interop.mkAttr "ToolbarComponent" value
     /// Picker value
     static member inline value (value: DateTime) = Interop.mkAttr "value" value
+    /// Picker value
+    static member inline value (value: DateTime option) = Interop.mkAttr "value" value
     /// Views to show
     static member inline views (value: #IViewProperty) = Interop.mkAttr "views" (value |> Array.singleton |> ResizeArray)
     /// Views to show
