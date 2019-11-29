@@ -15,7 +15,7 @@ let innerRender = React.functionComponent(fun () ->
 
     Mui.datePicker [
         datePicker.label "Date Picker"
-        if u.getYear state = 2019. then datePicker.helperText "It's the current year!"
+        if u.getYear state = 2019 then datePicker.helperText "It's the current year!"
         datePicker.value state
         datePicker.onChange setState
     ])
