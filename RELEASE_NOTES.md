@@ -1,3 +1,6 @@
+### 0.4.0 - Thursday, November 28, 2019
+* Fix some type signatures in the date interface
+
 ### 0.3.0 - Saturday, November 16, 2019
 * Add overloads for pickerUtils to support single elements/props
 

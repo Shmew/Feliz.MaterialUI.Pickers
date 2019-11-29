@@ -20,7 +20,7 @@ module Bindings =
         abstract parse: value: string * format: string -> DateTime option
         abstract isNull: value: DateTime option -> bool
         abstract isValid: value: obj option -> bool
-        abstract getDiff: value: DateTime * comparing: U2<DateTime, string> -> float
+        abstract getDiff: value: DateTime * comparing: U2<DateTime, string> -> int
         abstract isEqual: value: obj option * comparing: obj option -> bool
         abstract isSameDay: value: DateTime * comparing: DateTime -> bool
         abstract isAfter: value: DateTime * comparing: DateTime -> bool
@@ -31,24 +31,24 @@ module Bindings =
         abstract isBefore: value: DateTime * comparing: DateTime -> bool
         abstract startOfMonth: value: DateTime -> DateTime
         abstract endOfMonth: value: DateTime -> DateTime
-        abstract addDays: value: DateTime * count: float -> DateTime
+        abstract addDays: value: DateTime * count: int -> DateTime
         abstract startOfDay: value: DateTime -> DateTime
         abstract endOfDay: value: DateTime -> DateTime
         abstract format: value: DateTime * formatString: string -> string
         abstract formatNumber: numberToFormat: string -> string
-        abstract getHours: value: DateTime -> float
-        abstract setHours: value: DateTime * count: float -> DateTime
-        abstract getMinutes: value: DateTime -> float
-        abstract setMinutes: value: DateTime * count: float -> DateTime
-        abstract getSeconds: value: DateTime -> float
-        abstract setSeconds: value: DateTime * count: float -> DateTime
-        abstract getMonth: value: DateTime -> float
-        abstract setMonth: value: DateTime * count: float -> DateTime
+        abstract getHours: value: DateTime -> int
+        abstract setHours: value: DateTime * count: int -> DateTime
+        abstract getMinutes: value: DateTime -> int
+        abstract setMinutes: value: DateTime * count: int -> DateTime
+        abstract getSeconds: value: DateTime -> int
+        abstract setSeconds: value: DateTime * count: int -> DateTime
+        abstract getMonth: value: DateTime -> int
+        abstract setMonth: value: DateTime * count: int -> DateTime
         abstract getNextMonth: value: DateTime -> DateTime
         abstract getPreviousMonth: value: DateTime -> DateTime
         abstract getMonthArray: value: DateTime -> ResizeArray<DateTime>
-        abstract getYear: value: DateTime -> float
-        abstract setYear: value: DateTime * count: float -> DateTime
+        abstract getYear: value: DateTime -> int
+        abstract setYear: value: DateTime * count: int -> DateTime
         abstract mergeDateAndTime: date: DateTime * time: DateTime -> DateTime
         abstract getWeekdays: unit -> ResizeArray<string>
         abstract getWeekArray: date: DateTime -> ResizeArray<ResizeArray<DateTime>>
