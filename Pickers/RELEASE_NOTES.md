@@ -1,3 +1,7 @@
+### 0.6.0 - Friday, February 21, 2020
+* Cleaned up core bindings
+* Updated to work with Feliz.MaterialUI version 0.13
+
 ### 0.5.0 - Friday, November 29, 2019
 * Moved all DateTime callbacks and value initialization to options
 
