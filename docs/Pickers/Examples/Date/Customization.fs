@@ -7,16 +7,16 @@ open Feliz.MaterialUI
 open Feliz.MaterialUI.Pickers
 open System
 
-let private useStyles : unit -> _ = Styles.makeStyles <| fun (theme: Theme) ->
-    {| dayWrapper = Styles.create [ style.position.relative ]
+let private useStyles : unit -> _ = Styles.makeStyles (fun styles (theme: Theme) ->
+    {| dayWrapper = styles.create [ style.position.relative ]
        day = 
-           Styles.create
+           styles.create
              [ style.width 36
                style.height 36
                style.custom ("fontSize", theme.typography.caption.fontSize)
                style.margin (0, 2) ]
        customDayHighlight =
-           Styles.create
+           styles.create
              [ style.position.absolute
                style.top 0
                style.bottom 0
@@ -24,22 +24,22 @@ let private useStyles : unit -> _ = Styles.makeStyles <| fun (theme: Theme) ->
                style.right 2
                style.border (1, borderStyle.solid, "#f50057")
                style.borderRadius (length.percent 50) ]
-       nonCurrentMonthDay = Styles.create [ style.color theme.palette.text.disabled ]
-       highlightNonCurrentMonthDay = Styles.create [ style.color "#676767" ]
+       nonCurrentMonthDay = styles.create [ style.color theme.palette.text.disabled ]
+       highlightNonCurrentMonthDay = styles.create [ style.color "#676767" ]
        highlight =
-           Styles.create
+           styles.create
              [ style.backgroundColor "#3f51b5"
                style.color theme.palette.common.white ]
        firstHighlight = 
-           Styles.create 
+           styles.create 
              [ style.custom ("extend", "highlight")
                style.custom ("borderTopLeftRadius", "50%")
                style.custom ("borderBottomLeftRadius", "50%") ]
        endHighlight = 
-           Styles.create 
+           styles.create 
              [ style.custom ("extend", "highlight")
                style.custom ("borderTopRightRadius", "50%")
-               style.custom ("borderBottomRightRadius", "50%") ] |}
+               style.custom ("borderBottomRightRadius", "50%") ] |})
 
 module DateFns =
     let startOfWeek d : DateTime = importDefault "date-fns/startOfWeek"

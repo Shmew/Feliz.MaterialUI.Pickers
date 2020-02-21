@@ -4,146 +4,130 @@ open Fable.Core
 open Fable.Core.JsInterop
 open Feliz
 open Feliz.MaterialUI
+open System.ComponentModel
 
-[<Erase>]
-type overrides =
-    static member inline muiPickersDay (rules: IMuiPickersDayOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersDay", createObj !!rules)
-    static member inline muiPickerDTHeader (rules: IMuiPickerDTHeaderOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickerDTHeader", createObj !!rules)
-    static member inline muiPickerDTTabs (rules: IMuiPickerDTTabsOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickerDTTabs", createObj !!rules)
-    static member inline muiPickersCalendar (rules: IMuiPickersCalendarOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersCalendar", createObj !!rules)
-    static member inline muiPickersCalendarHeader (rules: IMuiPickersCalendarHeaderOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersCalendarHeader", createObj !!rules)
-    static member inline muiPickersSlideTransition (rules: IMuiPickersSlideTransitionOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersSlideTransition", createObj !!rules)
-    static member inline muiPickersYearSelectionStyles (rules: IMuiPickersYearSelectionStylesOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersYearSelectionStyles", createObj !!rules)
-    static member inline muiPickersYear (rules: IMuiPickersYearOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersYear", createObj !!rules)
-    static member inline muiPickersMonthSelection (rules: IMuiPickersMonthSelectionOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersMonthSelection", createObj !!rules)
-    static member inline muiPickersMonth (rules: IMuiPickersMonthOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersMonth", createObj !!rules)
-    static member inline muiPickersTimePickerToolbar (rules: IMuiPickersTimePickerToolbarOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersTimePickerToolbar", createObj !!rules)
-    static member inline muiPickersClock (rules: IMuiPickersClockOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersClock", createObj !!rules)
-    static member inline muiPickersClockNumber (rules: IMuiPickersClockNumberOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersClockNumber", createObj !!rules)
-    static member inline muiPickersClockPointer (rules: IMuiPickersClockPointerOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersClockPointer", createObj !!rules)
-    static member inline muiPickersModal (rules: IMuiPickersModalOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersModal", createObj !!rules)
-    static member inline muiPickersToolbar (rules: IMuiPickersToolbarOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersToolbar", createObj !!rules)
-    static member inline muiPickersToolbarButton (rules: IMuiPickersToolbarButtonOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersToolbarButton", createObj !!rules)
-    static member inline muiPickersDatePickerRoot (rules: IMuiPickersDatePickerRootOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickersDatePickerRoot", createObj !!rules)
-    static member inline muiPickerDTToolbar (rules: IMuiPickerDTToolbarOverrideRule list) : IOverrideStyleSheet = unbox ("MuiPickerDTToolbar", createObj !!rules)
+[<AutoOpen; EditorBrowsable(EditorBrowsableState.Never)>]
+module themeOverrides =
 
-module overrides =
+    module theme =
 
-    [<Erase>]
-    type muiPickersDay =
-        static member inline day (styles: IStyleAttribute list) : IMuiPickersDayOverrideRule = unbox ("day", createObj !!styles)
-        static member inline hidden (styles: IStyleAttribute list) : IMuiPickersDayOverrideRule = unbox ("hidden", createObj !!styles)
-        static member inline current (styles: IStyleAttribute list) : IMuiPickersDayOverrideRule = unbox ("current", createObj !!styles)
-        static member inline daySelected (styles: IStyleAttribute list) : IMuiPickersDayOverrideRule = unbox ("daySelected", createObj !!styles)
-        static member inline dayDisabled (styles: IStyleAttribute list) : IMuiPickersDayOverrideRule = unbox ("dayDisabled", createObj !!styles)
+        module overrides =
 
-    [<Erase>]
-    type muiPickerDTHeader =
-        static member inline toolbar (styles: IStyleAttribute list) : IMuiPickerDTHeaderOverrideRule = unbox ("toolbar", createObj !!styles)
-        static member inline separator (styles: IStyleAttribute list) : IMuiPickerDTHeaderOverrideRule = unbox ("separator", createObj !!styles)
+            [<Erase>]
+            type muiPickersDay =
+                static member inline day (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersDay.day", createObj !!styles)
+                static member inline hidden (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersDay.hidden", createObj !!styles)
+                static member inline current (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersDay.current", createObj !!styles)
+                static member inline daySelected (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersDay.daySelected", createObj !!styles)
+                static member inline dayDisabled (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersDay.dayDisabled", createObj !!styles)
 
-    [<Erase>]
-    type muiPickerDTTabs =
-        static member inline tabs (styles: IStyleAttribute list) : IMuiPickerDTTabsOverrideRule = unbox ("tabs", createObj !!styles)
+            [<Erase>]
+            type muiPickerDTHeader =
+                static member inline toolbar (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickerDTHeader.toolbar", createObj !!styles)
+                static member inline separator (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickerDTHeader.separator", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersCalendar =
-        static member inline transitionContainer (styles: IStyleAttribute list) : IMuiPickersCalendarOverrideRule = unbox ("transitionContainer", createObj !!styles)
-        static member inline minHeight (styles: IStyleAttribute list) : IMuiPickersCalendarOverrideRule = unbox ("minHeight", createObj !!styles)
-        static member inline marginTop (styles: IStyleAttribute list) : IMuiPickersCalendarOverrideRule = unbox ("marginTop", createObj !!styles)
+            [<Erase>]
+            type muiPickerDTTabs =
+                static member inline tabs (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickerDTTabs.tabs", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersCalendarHeader =
-        static member inline switchHeader (styles: IStyleAttribute list) : IMuiPickersCalendarHeaderOverrideRule = unbox ("switchHeader", createObj !!styles)
-        static member inline transitionContainer (styles: IStyleAttribute list) : IMuiPickersCalendarHeaderOverrideRule = unbox ("transitionContainer", createObj !!styles)
-        static member inline iconButton (styles: IStyleAttribute list) : IMuiPickersCalendarHeaderOverrideRule = unbox ("iconButton", createObj !!styles)
-        static member inline daysHeader (styles: IStyleAttribute list) : IMuiPickersCalendarHeaderOverrideRule = unbox ("daysHeader", createObj !!styles)
-        static member inline dayLabel (styles: IStyleAttribute list) : IMuiPickersCalendarHeaderOverrideRule = unbox ("dayLabel", createObj !!styles)
+            [<Erase>]
+            type muiPickersCalendar =
+                static member inline transitionContainer (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersCalendar.transitionContainer", createObj !!styles)
+                static member inline minHeight (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersCalendar.minHeight", createObj !!styles)
+                static member inline marginTop (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersCalendar.marginTop", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersSlideTransition =
-        static member inline transitionContainer (styles: IStyleAttribute list) : IMuiPickersSlideTransitionOverrideRule = unbox ("transitionContainer", createObj !!styles)
-        static member inline slideEnterLeft (styles: IStyleAttribute list) : IMuiPickersSlideTransitionOverrideRule = unbox ("slideEnter-left", createObj !!styles)
-        static member inline slideEnterRight (styles: IStyleAttribute list) : IMuiPickersSlideTransitionOverrideRule = unbox ("slideEnter-right", createObj !!styles)
-        static member inline slideEnterActive (styles: IStyleAttribute list) : IMuiPickersSlideTransitionOverrideRule = unbox ("slideEnterActive", createObj !!styles)
-        static member inline slideExit (styles: IStyleAttribute list) : IMuiPickersSlideTransitionOverrideRule = unbox ("slideExit", createObj !!styles)
-        static member inline slideExitActiveLeftLeft (styles: IStyleAttribute list) : IMuiPickersSlideTransitionOverrideRule = unbox ("slideExitActiveLeft-left", createObj !!styles)
-        static member inline slideExitActiveLeftRight (styles: IStyleAttribute list) : IMuiPickersSlideTransitionOverrideRule = unbox ("slideExitActiveLeft-right", createObj !!styles)
+            [<Erase>]
+            type muiPickersCalendarHeader =
+                static member inline switchHeader (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersCalendarHeader.switchHeader", createObj !!styles)
+                static member inline transitionContainer (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersCalendarHeader.transitionContainer", createObj !!styles)
+                static member inline iconButton (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersCalendarHeader.iconButton", createObj !!styles)
+                static member inline daysHeader (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersCalendarHeader.daysHeader", createObj !!styles)
+                static member inline dayLabel (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersCalendarHeader.dayLabel", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersYearSelectionStyles =
-        static member inline container (styles: IStyleAttribute list) : IMuiPickersYearSelectionStylesOverrideRule = unbox ("container", createObj !!styles)
+            [<Erase>]
+            type muiPickersSlideTransition =
+                static member inline transitionContainer (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersSlideTransition.transitionContainer", createObj !!styles)
+                static member inline slideEnterLeft (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersSlideTransition.slideEnter-left", createObj !!styles)
+                static member inline slideEnterRight (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersSlideTransition.slideEnter-right", createObj !!styles)
+                static member inline slideEnterActive (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersSlideTransition.slideEnterActive", createObj !!styles)
+                static member inline slideExit (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersSlideTransition.slideExit", createObj !!styles)
+                static member inline slideExitActiveLeftLeft (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersSlideTransition.slideExitActiveLeft-left", createObj !!styles)
+                static member inline slideExitActiveLeftRight (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersSlideTransition.slideExitActiveLeft-right", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersYear =
-        static member inline root (styles: IStyleAttribute list) : IMuiPickersYearOverrideRule = unbox ("root", createObj !!styles)
-        static member inline yearSelected (styles: IStyleAttribute list) : IMuiPickersYearOverrideRule = unbox ("yearSelected", createObj !!styles)
-        static member inline yearDisabled (styles: IStyleAttribute list) : IMuiPickersYearOverrideRule = unbox ("yearDisabled", createObj !!styles)
+            [<Erase>]
+            type muiPickersYearSelectionStyles =
+                static member inline container (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersYearSelectionStyles.container", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersMonthSelection =
-        static member inline container (styles: IStyleAttribute list) : IMuiPickersMonthSelectionOverrideRule = unbox ("container", createObj !!styles)
+            [<Erase>]
+            type muiPickersYear =
+                static member inline root (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersYear.root", createObj !!styles)
+                static member inline yearSelected (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersYear.yearSelected", createObj !!styles)
+                static member inline yearDisabled (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersYear.yearDisabled", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersMonth =
-        static member inline root (styles: IStyleAttribute list) : IMuiPickersMonthOverrideRule = unbox ("root", createObj !!styles)
-        static member inline monthSelected (styles: IStyleAttribute list) : IMuiPickersMonthOverrideRule = unbox ("monthSelected", createObj !!styles)
-        static member inline monthDisabled (styles: IStyleAttribute list) : IMuiPickersMonthOverrideRule = unbox ("monthDisabled", createObj !!styles)
+            [<Erase>]
+            type muiPickersMonthSelection =
+                static member inline container (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersMonthSelection.container", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersTimePickerToolbar =
-        static member inline toolbarLandscape (styles: IStyleAttribute list) : IMuiPickersTimePickerToolbarOverrideRule = unbox ("toolbarLandscape", createObj !!styles)
-        static member inline toolbarAmpmLeftPadding (styles: IStyleAttribute list) : IMuiPickersTimePickerToolbarOverrideRule = unbox ("toolbarAmpmLeftPadding", createObj !!styles)
-        static member inline separator (styles: IStyleAttribute list) : IMuiPickersTimePickerToolbarOverrideRule = unbox ("separator", createObj !!styles)
-        static member inline hourMinuteLabel (styles: IStyleAttribute list) : IMuiPickersTimePickerToolbarOverrideRule = unbox ("hourMinuteLabel", createObj !!styles)
-        static member inline hourMinuteLabelAmpmLandscape (styles: IStyleAttribute list) : IMuiPickersTimePickerToolbarOverrideRule = unbox ("hourMinuteLabelAmpmLandscape", createObj !!styles)
-        static member inline hourMinuteLabelReverse (styles: IStyleAttribute list) : IMuiPickersTimePickerToolbarOverrideRule = unbox ("hourMinuteLabelReverse", createObj !!styles)
-        static member inline ampmSelection (styles: IStyleAttribute list) : IMuiPickersTimePickerToolbarOverrideRule = unbox ("ampmSelection", createObj !!styles)
-        static member inline ampmLandscape (styles: IStyleAttribute list) : IMuiPickersTimePickerToolbarOverrideRule = unbox ("ampmLandscape", createObj !!styles)
-        static member inline ampmSelectionWithSeconds (styles: IStyleAttribute list) : IMuiPickersTimePickerToolbarOverrideRule = unbox ("ampmSelectionWithSeconds", createObj !!styles)
-        static member inline ampmLabel (styles: IStyleAttribute list) : IMuiPickersTimePickerToolbarOverrideRule = unbox ("ampmLabel", createObj !!styles)
+            [<Erase>]
+            type muiPickersMonth =
+                static member inline root (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersMonth.root", createObj !!styles)
+                static member inline monthSelected (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersMonth.monthSelected", createObj !!styles)
+                static member inline monthDisabled (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersMonth.monthDisabled", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersClock =
-        static member inline clock (styles: IStyleAttribute list) : IMuiPickersClockOverrideRule = unbox ("clock", createObj !!styles)
-        static member inline squareMask (styles: IStyleAttribute list) : IMuiPickersClockOverrideRule = unbox ("squareMask", createObj !!styles)
-        static member inline pin (styles: IStyleAttribute list) : IMuiPickersClockOverrideRule = unbox ("pin", createObj !!styles)
+            [<Erase>]
+            type muiPickersTimePickerToolbar =
+                static member inline toolbarLandscape (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersTimePickerToolbar.toolbarLandscape", createObj !!styles)
+                static member inline toolbarAmpmLeftPadding (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersTimePickerToolbar.toolbarAmpmLeftPadding", createObj !!styles)
+                static member inline separator (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersTimePickerToolbar.separator", createObj !!styles)
+                static member inline hourMinuteLabel (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersTimePickerToolbar.hourMinuteLabel", createObj !!styles)
+                static member inline hourMinuteLabelAmpmLandscape (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersTimePickerToolbar.hourMinuteLabelAmpmLandscape", createObj !!styles)
+                static member inline hourMinuteLabelReverse (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersTimePickerToolbar.hourMinuteLabelReverse", createObj !!styles)
+                static member inline ampmSelection (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersTimePickerToolbar.ampmSelection", createObj !!styles)
+                static member inline ampmLandscape (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersTimePickerToolbar.ampmLandscape", createObj !!styles)
+                static member inline ampmSelectionWithSeconds (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersTimePickerToolbar.ampmSelectionWithSeconds", createObj !!styles)
+                static member inline ampmLabel (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersTimePickerToolbar.ampmLabel", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersClockNumber =
-        static member inline clockNumber (styles: IStyleAttribute list) : IMuiPickersClockNumberOverrideRule = unbox ("clockNumber", createObj !!styles)
-        static member inline clockNumberSelected (styles: IStyleAttribute list) : IMuiPickersClockNumberOverrideRule = unbox ("clockNumberSelected", createObj !!styles)
+            [<Erase>]
+            type muiPickersClock =
+                static member inline clock (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersClock.clock", createObj !!styles)
+                static member inline squareMask (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersClock.squareMask", createObj !!styles)
+                static member inline pin (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersClock.pin", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersClockPointer =
-        static member inline pointer (styles: IStyleAttribute list) : IMuiPickersClockPointerOverrideRule = unbox ("pointer", createObj !!styles)
-        static member inline animateTransform (styles: IStyleAttribute list) : IMuiPickersClockPointerOverrideRule = unbox ("animateTransform", createObj !!styles)
-        static member inline thumb (styles: IStyleAttribute list) : IMuiPickersClockPointerOverrideRule = unbox ("thumb", createObj !!styles)
-        static member inline noPoint (styles: IStyleAttribute list) : IMuiPickersClockPointerOverrideRule = unbox ("noPoint", createObj !!styles)
+            [<Erase>]
+            type muiPickersClockNumber =
+                static member inline clockNumber (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersClockNumber.clockNumber", createObj !!styles)
+                static member inline clockNumberSelected (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersClockNumber.clockNumberSelected", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersModal =
-        static member inline dialogRoot (styles: IStyleAttribute list) : IMuiPickersModalOverrideRule = unbox ("dialogRoot", createObj !!styles)
-        static member inline dialogRootWider (styles: IStyleAttribute list) : IMuiPickersModalOverrideRule = unbox ("dialogRootWider", createObj !!styles)
-        static member inline dialog (styles: IStyleAttribute list) : IMuiPickersModalOverrideRule = unbox ("dialog", createObj !!styles)
-        static member inline withAdditionalAction (styles: IStyleAttribute list) : IMuiPickersModalOverrideRule = unbox ("withAdditionalAction", createObj !!styles)
+            [<Erase>]
+            type muiPickersClockPointer =
+                static member inline pointer (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersClockPointer.pointer", createObj !!styles)
+                static member inline animateTransform (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersClockPointer.animateTransform", createObj !!styles)
+                static member inline thumb (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersClockPointer.thumb", createObj !!styles)
+                static member inline noPoint (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersClockPointer.noPoint", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersToolbar =
-        static member inline toolbar (styles: IStyleAttribute list) : IMuiPickersToolbarOverrideRule = unbox ("toolbar", createObj !!styles)
-        static member inline toolbarLandscape (styles: IStyleAttribute list) : IMuiPickersToolbarOverrideRule = unbox ("toolbarLandscape", createObj !!styles)
+            [<Erase>]
+            type muiPickersModal =
+                static member inline dialogRoot (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersModal.dialogRoot", createObj !!styles)
+                static member inline dialogRootWider (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersModal.dialogRootWider", createObj !!styles)
+                static member inline dialog (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersModal.dialog", createObj !!styles)
+                static member inline withAdditionalAction (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersModal.withAdditionalAction", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersToolbarButton =
-        static member inline toolbarBtn (styles: IStyleAttribute list) : IMuiPickersToolbarButtonOverrideRule = unbox ("toolbarBtn", createObj !!styles)
+            [<Erase>]
+            type muiPickersToolbar =
+                static member inline toolbar (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersToolbar.toolbar", createObj !!styles)
+                static member inline toolbarLandscape (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersToolbar.toolbarLandscape", createObj !!styles)
 
-    [<Erase>]
-    type muiPickersDatePickerRoot =
-        static member inline toolbar (styles: IStyleAttribute list) : IMuiPickersDatePickerRootOverrideRule = unbox ("toolbar", createObj !!styles)
-        static member inline toolbarLandscape (styles: IStyleAttribute list) : IMuiPickersDatePickerRootOverrideRule = unbox ("toolbarLandscape", createObj !!styles)
-        static member inline dateLandscape (styles: IStyleAttribute list) : IMuiPickersDatePickerRootOverrideRule = unbox ("dateLandscape", createObj !!styles)
+            [<Erase>]
+            type muiPickersToolbarButton =
+                static member inline toolbarBtn (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersToolbarButton.toolbarBtn", createObj !!styles)
 
-    [<Erase>]
-    type muiPickerDTToolbar =
-        static member inline toolbar (styles: IStyleAttribute list) : IMuiPickerDTToolbarOverrideRule = unbox ("toolbar", createObj !!styles)
-        static member inline separator (styles: IStyleAttribute list) : IMuiPickerDTToolbarOverrideRule = unbox ("separator", createObj !!styles)
+            [<Erase>]
+            type muiPickersDatePickerRoot =
+                static member inline toolbar (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersDatePickerRoot.toolbar", createObj !!styles)
+                static member inline toolbarLandscape (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersDatePickerRoot.toolbarLandscape", createObj !!styles)
+                static member inline dateLandscape (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickersDatePickerRoot.dateLandscape", createObj !!styles)
+
+            [<Erase>]
+            type muiPickerDTToolbar =
+                static member inline toolbar (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickerDTToolbar.toolbar", createObj !!styles)
+                static member inline separator (styles: IStyleAttribute list) : IThemeProp = unbox ("overrides.MuiPickerDTToolbar.separator", createObj !!styles)
