@@ -1,4 +1,4 @@
-# Feliz.MaterialUI.Pickers (alpha) [![Nuget](https://img.shields.io/nuget/v/Feliz.MaterialUI.Pickers.svg?maxAge=0&colorB=brightgreen)](https://www.nuget.org/packages/Feliz.MaterialUI.Pickers)
+# Feliz.MaterialUI.Pickers [![Nuget](https://img.shields.io/nuget/v/Feliz.MaterialUI.Pickers.svg?maxAge=0&colorB=brightgreen)](https://www.nuget.org/packages/Feliz.MaterialUI.Pickers)
 
 Fable bindings for [material-ui-pickers](https://github.com/mui-org/material-ui-pickers) with [Feliz](https://github.com/Zaid-Ajaj/Feliz) style api for use within MaterialUI.
 

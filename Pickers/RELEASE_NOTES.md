@@ -1,3 +1,6 @@
+### 1.0.0 - Saturday, May 23, 2020
+* Stable release
+
 ### 0.6.0 - Friday, February 21, 2020
 * Cleaned up core bindings
 * Updated to work with Feliz.MaterialUI version 0.13
