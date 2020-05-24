@@ -1,3 +1,6 @@
+### 1.0.1 - Sunday, May 24, 2020
+* Loosen FSharp.Core dependency
+
 ### 1.0.0 - Saturday, May 23, 2020
 * Stable release
 
