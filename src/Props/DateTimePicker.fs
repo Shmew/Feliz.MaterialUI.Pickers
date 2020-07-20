@@ -144,7 +144,9 @@ type dateTimePicker =
     /// Component that will replace default toolbar renderer
     static member inline toolbarComponent (value: ReactElementType) = Interop.mkAttr "ToolbarComponent" value
     /// Picker value
-    static member inline value (value: DateTime option) = Interop.mkAttr "value" value
+    static member inline value (value: DateTime) = Interop.mkAttr "value" value
+    /// Picker value
+    static member inline value (value: DateTime option) = Interop.mkAttr "value" (Option.defaultValue (unbox null) value)
     /// Views to show
     static member inline views (value: #IViewProperty) = Interop.mkAttr "views" (value |> Array.singleton |> ResizeArray)
     /// Views to show

@@ -68,11 +68,11 @@ module FSharpLinter =
         let config =
             if webFile then ConfigurationParam.FromFile (__SOURCE_DIRECTORY__ @@ "fsharplint.json")
             else ConfigurationParam.Default
+
         { CancellationToken = None
           ReceivedWarning = Some writeLintWarning
           Configuration = config
-          ReportLinterProgress = Some parserProgress
-          ReleaseConfiguration = None }
+          ReportLinterProgress = Some parserProgress }
           
     let lintFiles (fileList: (bool * string list) list) =
         let lintFile (webFile: bool) (file: string) =

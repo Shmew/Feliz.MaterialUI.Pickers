@@ -1,3 +1,7 @@
+### 1.1.0 - Sunday, July 19, 2020
+* Add additional value overloads
+* Adjust None handling due to change with fable-compiler
+
 ### 1.0.1 - Sunday, May 24, 2020
 * Loosen FSharp.Core dependency
 
