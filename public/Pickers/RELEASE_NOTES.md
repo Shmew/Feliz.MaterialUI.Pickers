@@ -1,3 +1,6 @@
+### 1.1.1 - Thursday, September 2, 2020
+* Update dependencies
+
 ### 1.1.0 - Sunday, July 19, 2020
 * Add additional value overloads
 * Adjust None handling due to change with fable-compiler

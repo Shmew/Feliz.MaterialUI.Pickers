@@ -23,10 +23,6 @@
     <Compile Include="Pickers\Examples\Date\StaticMode.fs" />
     <Compile Include="Pickers\Examples\Date\Customization.fs" />
     <Compile Include="Pickers\Examples\Date\DynamicData.fs" />
-    <Compile Include="..\paket-files\docs\Zaid-Ajaj\Feliz\Feliz.Markdown\Markdown.fs">
-      <Paket>True</Paket>
-      <Link>Feliz.Markdown/Markdown.fs</Link>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Urls.fs" />

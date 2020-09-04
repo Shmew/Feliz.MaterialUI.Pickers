@@ -640,9 +640,9 @@ let render' = React.functionComponent (fun (input: {| model: Model; dispatch: Ms
     ])
 
 let render (model: Model) dispatch =
-    Router.router [
-        Router.onUrlChanged (UrlChanged >> dispatch)
-        Router.application (render' {| model = model; dispatch = dispatch |})
+    React.router [
+        router.onUrlChanged (UrlChanged >> dispatch)
+        router.children (render' {| model = model; dispatch = dispatch |})
     ]
 
 Program.mkProgram init update render
