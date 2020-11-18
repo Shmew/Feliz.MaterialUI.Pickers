@@ -1,3 +1,6 @@
+### 1.1.2 - Wednesday, November 18th, 2020
+* Support FSharp.Core 5.0
+
 ### 1.1.1 - Thursday, September 2, 2020
 * Update dependencies
 
